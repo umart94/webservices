@@ -1,0 +1,29 @@
+A servlet container is an application server that implements some version of the Java Servlet Specification.
+
+In a nutshell, the servlet spec defines a programming model that allows a developer to write components, for example servlets, that process requests (almost always HTTP requests). Those components can then be declared to the container and it handles many of the tedious tasks involved with wiring up and managing those components such that they can process those requests.
+
+
+
+
+Servlets and the Servlet Container
+Unlike a Java client program, a servlet has no static main() method. Therefore, a servlet must execute under the control of an external container.
+
+Servlet containers, sometimes referred to as servlet engines, execute and manage servlets. The servlet container calls servlet methods and provides services that the servlet needs while executing. A servlet container is usually written in Java and is either part of a Web server (if the Web server is also written in Java) or is otherwise associated with and used by a Web server. OC4J includes a fully standards-compliant servlet container.
+
+The servlet container provides the servlet with easy access to properties of the HTTP request, such as its headers and parameters. When a servlet is called, such as when it is specified by URL, the Web server passes the HTTP request to the servlet container. The container, in turn, passes the request to the servlet. In the course of managing a servlet, a servlet container performs the following tasks:
+
+It creates an instance of the servlet and calls its init() method to initialize it.
+
+It constructs a request object to pass to the servlet. The request includes, among other things:
+
+Any HTTP headers from the client
+
+Parameters and values passed from the client (for example, names and values of query strings in the URL)
+
+The complete URI of the servlet request
+
+It constructs a response object for the servlet.
+
+It invokes the servlet service() method. Note that for HTTP servlets, the generic service method is usually overridden in the HttpServlet class. The service method dispatches requests to the servlet doGet() or doPost() methods, depending on the HTTP header in the request (GET or POST).
+
+It calls the destroy() method of the servlet to discard it, when appropriate, so that it can be garbage collected. (For performance reasons, it is typical for a servlet container to keep a servlet instance in memory for reuse, rather than destroying it each time it has finished its task. It would be destroyed only for infrequent events, such as Web server shutdown.)

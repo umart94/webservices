@@ -1,0 +1,40 @@
+RESTful XML Formats
+
+RSS
+RSS 1.0 : RDF Site Summary
+RSS 2.0: Really Simple Syndication
+
+developed by Netscape.
+now its opensource.
+
+originally designed for web feeds.
+standard for blog feeds like CMS systems.
+
+------------------
+
+Fixed xml format.
+ATOM Publishing protocol
+
+http based protocol for managing web resources.
+
+ATOM Syndication format.
+xml language for web feeds and other structured data.
+some advantages over rss (it is standardized) and it can handle more types of data
+
+-------------
+RESTful XML Formats.
+
+custom designed xml schemas.
+commonly these reflect underlying data structures.
+some are standardized, others are service-specific.
+
+---------------------
+
+JSON
+originated at state software in 2001
+
+Uses JavaScript Notation to encode structured data.
+move data around from webpage to webpage or webpage to server and then run that in browsers. so it can run in memory.
+
+
+

@@ -1,0 +1,38 @@
+WebServices Use Messages.
+----------------------
+Tools for Messages : 
+https://www.charlesproxy.com/
+
+it can capture what is going on in http transfers.
+
+Chrome Web Store : REST Console. (only supports REST)
+
+Postman
+
+--------------------------
+in plain old xml , names of tags match underlying data structure.
+-------------------------
+from RSS 2.0 we can return a standard xml format.
+
+XML,POX,ATOM,RSS,JSON
+
+-------------------------
+
+Action Message Format (AMF)
+binary format, smaller than most text based formats
+created for adobe flash player6. 
+( also used in flex and coldfusion)
+supported by adobe but open source. AMFPHP.
+----------------------------
+Text formats
+HTML
+comma or tab seperated files
+arbitrary formats that require custom parsers.
+------------
+binary formats
+spreadsheets
+archives
+image files.
+
+
+

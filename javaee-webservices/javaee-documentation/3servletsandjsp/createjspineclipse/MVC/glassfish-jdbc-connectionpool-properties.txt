@@ -1,0 +1,20 @@
+Additional properties.... after setting them, try pinging again...
+
+ping succeeded with green icon should show, else there is a problem in either :
+
+glassfish ssl config
+mysql ssl config
+some file path is wrong
+some certificate is wrong
+some additional property should be set to either false or true.
+
+password
+user
+URL
+clientCertificateKeyStoreUrl file:C:\\certs\\mysqlclientkeystore
+clientCertificateKeyStorePassword password
+sslMode REQUIRED 
+autoReconnect true
+verifyServerCertificate true
+requireSSL true
+useSSL true

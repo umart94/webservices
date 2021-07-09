@@ -1,0 +1,66 @@
+Securing Web Services
+
+Only authorized applications can access web services
+Prevent Non-authorized people to not access the web service. and sniffing web traffic
+
+------------------------
+
+1. Use an HTTP Server that supports Encryption.
+
+since most webservices exchange messages in plaintext ( the http requests , http headers and request bodies. and response messages in form of xml or json )
+
+an encryption scheme sends these in non readable format.
+
+HTTP Servers and Clients Encrypt and Decrypt Messages.
+
+--------------------------------------
+SSL - Secure Sockets Layer
+
+a cryptographic protocol for encrypting streams of data over the internet.
+netscape , 1995
+2.0 in 1996
+its supported by all modern http webservers and clients.
+
+-------------------
+TLS - Transport Layer Security.
+
+its based on SSL
+1.1
+1.2
+
+-------------------
+HTTPS - Secure HTTP
+combination of http requests and responses over SSL/TLS channels
+
+ssl/tls establishes a secure bi-directional tunnel for data transfer between 2 hosts
+data in plaintext made binary , sent from client to server , decrypted. and response goes through same procedure.
+
+All modern HttpServers support HTTPS
+
+we need a Security Certificate to implement HTTPS on a WebServer.
+
+these certificates are acquired from : 
+1. DigiCert
+
+DigiCert is a trusted certificate authority.
+it is also a Root certificate authority.
+
+
+1. CLIENT NEEDS A ROOT CERTIFICATE
+2. THIS MATCHES THE certificate OFFERED BY THE HTTP SERVER
+3. THE ROOT CERTIFICATES ISSUED BY THESE VENDORS KNOWN AS ROOT CERTIFICATE AUTHORITIES ARE INCLUDED IN THE WEB CLIENTS
+
+
+get a security certificate
+install in the httpserver
+
+only drawback is a slight reduction in performance.
+----------------------
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+extensible markup language
+
+
+self-descriptive
+tags defined by author
+
+
+<!-- root tag is message, when this root tag is closed document is finished. -->
+
+<!-- this ensures that computers can quickly determine the start and end points of a file -->
+
+the structure is that of an html document - in html the tags are predefined.
+
+difference in xml is that the tags are custom made 
+
+<root>
+<message id="123">
+<p>All text added to this tag is considered a part of this tag</p>
+</message>
+</root>
+
+p was last tag used innermost element.
+p must be closed before its parent was closed.
+
+tags and attributes are case sensitive.
+

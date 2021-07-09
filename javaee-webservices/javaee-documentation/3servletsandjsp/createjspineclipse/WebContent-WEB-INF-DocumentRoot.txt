@@ -1,0 +1,3 @@
+The EE spec talks about the directory structure of your final war file. The directory structure you put in your question is how IDE arranges different files in its project structure. They are two different things.
+
+To answer your question, the document root in the war is the parent directory of WEB-INF directory. Different IDE has different document root for the project structure, but in most cases, it is the parent directory of WEB-INF directory too. In the netbeans case, it is the web folder. In the standard Eclipse web project, it is the WebContent directory. In the maven world, it is the src/main/webapp directory. These are all configurable though in the IDE.

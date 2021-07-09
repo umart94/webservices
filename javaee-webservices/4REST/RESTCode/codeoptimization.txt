@@ -1,0 +1,30 @@
+when why and to what extend we should optimize our java code
+
+significant disadvantages
+
+code is harder to understand and maintain
+flexibility to update code and maintain code
+compatibility issues
+
+
+10 % of the code takes 90 5 of the time
+
+never repeat work
+database accesses are slow.
+
+assigned to a variable. in place of a calculation
+
+web services - LIMIT THE AMMOUNT OF DATABASE ACCESSES.
+external servers take milliseconds instead of microseconds.
+
+
+structure data in usable form
+nesting loops - highly inefficient
+
+ordering of data can optimize  code.
+
+if we have 1 million unordered pieces of data - takes 1 million operations
+
+if they are sorted. searching for value takes just 20 operations using binary search.
+
+

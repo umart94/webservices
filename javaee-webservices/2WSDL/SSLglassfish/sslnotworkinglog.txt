@@ -1,0 +1,79 @@
+2020-09-11T16:42:26.981+0500|Info: Running GlassFish Version: GlassFish Server Open Source Edition  5.0.1  (build java_re-private)
+2020-09-11T16:42:26.982+0500|Info: Server log file is using Formatter class: com.sun.enterprise.server.logging.ODLLogFormatter
+2020-09-11T16:42:27.194+0500|Info: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+2020-09-11T16:42:27.195+0500|Info: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+2020-09-11T16:42:27.198+0500|Info: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+2020-09-11T16:42:27.211+0500|Info: Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry
+2020-09-11T16:42:27.224+0500|Info: Authorization Service has successfully initialized.
+2020-09-11T16:42:27.264+0500|Info: JTS5014: Recoverable JTS instance, serverId = [100]
+2020-09-11T16:42:27.269+0500|Info: Grizzly Framework 2.4.3 started in: 15ms - bound to [/0.0.0.0:8080]
+2020-09-11T16:42:27.280+0500|Warning: TLS ALPN (Application-Layer Protocol Negotiation) support is not available. HTTP/2 support will not be enabled.
+2020-09-11T16:42:27.284+0500|Info: Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]
+2020-09-11T16:42:27.292+0500|Warning: HTTP/2 (enabled by default) is unsupported with port unification and will be disabled for network listener admin-listener.
+2020-09-11T16:42:27.301+0500|Info: Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:4848]
+2020-09-11T16:42:27.323+0500|Info: Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:3700]
+2020-09-11T16:42:27.352+0500|Info: visiting unvisited references
+2020-09-11T16:42:27.468+0500|Info: Web service endpoint deployment events listener registered successfully.
+2020-09-11T16:42:27.658+0500|Info: Java security manager is disabled.
+2020-09-11T16:42:27.659+0500|Info: Entering Security Startup Service.
+2020-09-11T16:42:27.660+0500|Info: Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.
+2020-09-11T16:42:27.684+0500|Info: Security Service(s) started successfully.
+2020-09-11T16:42:27.907+0500|Info: Created HTTP listener http-listener-1 on host/port 0.0.0.0:8080
+2020-09-11T16:42:27.910+0500|Info: Created HTTP listener http-listener-2 on host/port 0.0.0.0:8181
+2020-09-11T16:42:27.912+0500|Info: Created HTTP listener admin-listener on host/port 0.0.0.0:4848
+2020-09-11T16:42:27.925+0500|Info: Created virtual server server
+2020-09-11T16:42:27.926+0500|Info: Created virtual server __asadmin
+2020-09-11T16:42:28.054+0500|Info: Setting JAAS app name glassfish-web
+2020-09-11T16:42:28.055+0500|Info: Virtual server server loaded default web module 
+2020-09-11T16:42:28.242+0500|Info: visiting unvisited references
+2020-09-11T16:42:28.264+0500|Info: visiting unvisited references
+2020-09-11T16:42:28.318+0500|Info: Webservice Endpoint deployed newname
+ listening at address at http://DESKTOP-GN0170R:8080/HelloWorld/HelloWorldService.
+2020-09-11T16:42:28.319+0500|Info: Loading WS-TX Services. Please wait.
+2020-09-11T16:42:28.345+0500|Info: visiting unvisited references
+2020-09-11T16:42:28.474+0500|Info: visiting unvisited references
+2020-09-11T16:42:28.479+0500|Info: visiting unvisited references
+2020-09-11T16:42:28.570+0500|Info: Webservice Endpoint deployed RegistrationPortTypeImpl
+ listening at address at http://DESKTOP-GN0170R:8080/__wstx-services/RegistrationPortTypeRPC.
+2020-09-11T16:42:28.570+0500|Info: Webservice Endpoint deployed RegistrationRequesterPortTypePortImpl
+ listening at address at http://DESKTOP-GN0170R:8080/__wstx-services/RegistrationRequesterPortType11.
+2020-09-11T16:42:28.571+0500|Info: Webservice Endpoint deployed RegistrationPortTypeRPCPortImpl
+ listening at address at http://DESKTOP-GN0170R:8080/__wstx-services/RegistrationPortTypeRPC11.
+2020-09-11T16:42:28.571+0500|Info: Webservice Endpoint deployed CoordinatorPortTypeImpl
+ listening at address at http://DESKTOP-GN0170R:8080/__wstx-services/CoordinatorPortType.
+2020-09-11T16:42:28.572+0500|Info: Webservice Endpoint deployed CoordinatorPortTypePortImpl
+ listening at address at http://DESKTOP-GN0170R:8080/__wstx-services/CoordinatorPortType11.
+2020-09-11T16:42:28.572+0500|Info: Webservice Endpoint deployed RegistrationRequesterPortTypeImpl
+ listening at address at http://DESKTOP-GN0170R:8080/__wstx-services/RegistrationRequesterPortType.
+2020-09-11T16:42:28.573+0500|Info: Webservice Endpoint deployed ParticipantPortTypePortImpl
+ listening at address at http://DESKTOP-GN0170R:8080/__wstx-services/ParticipantPortType11.
+2020-09-11T16:42:28.573+0500|Info: Webservice Endpoint deployed ParticipantPortTypeImpl
+ listening at address at http://DESKTOP-GN0170R:8080/__wstx-services/ParticipantPortType.
+2020-09-11T16:42:28.696+0500|Warning: Using deprecated META-INF/services mechanism with non-standard property: javax.xml.soap.MetaFactory. Property javax.xml.soap.SAAJMetaFactory should be used instead.
+2020-09-11T16:42:28.710+0500|Warning: Using deprecated META-INF/services mechanism with non-standard property: javax.xml.soap.MetaFactory. Property javax.xml.soap.SAAJMetaFactory should be used instead.
+2020-09-11T16:42:28.712+0500|Warning: Using deprecated META-INF/services mechanism with non-standard property: javax.xml.soap.MetaFactory. Property javax.xml.soap.SAAJMetaFactory should be used instead.
+2020-09-11T16:42:28.713+0500|Warning: Using deprecated META-INF/services mechanism with non-standard property: javax.xml.soap.MetaFactory. Property javax.xml.soap.SAAJMetaFactory should be used instead.
+2020-09-11T16:42:29.624+0500|Info: Loading application [wstx-services] at [/__wstx-services]
+2020-09-11T16:42:29.625+0500|Info: WS-TX Services successfully started.
+2020-09-11T16:42:29.752+0500|Info: Loading application [HelloWorld] at [/HelloWorld]
+2020-09-11T16:42:29.753+0500|Info: Loading application HelloWorld done in 2,523 ms
+2020-09-11T16:42:29.753+0500|Info: GlassFish Server Open Source Edition  5.0.1  (java_re-private) startup time : Felix (1,282ms), startup services(2,827ms), total(4,109ms)
+2020-09-11T16:42:29.795+0500|Info: Creating a SecureRMIServerSocketFactory @ 0.0.0.0 with ssl config = GlassFishConfigBean.org.glassfish.grizzly.config.dom.Ssl
+2020-09-11T16:42:29.796+0500|Info: Grizzly Framework 2.4.3 started in: 3ms - bound to [/0.0.0.0:7676]
+2020-09-11T16:42:29.798+0500|Info: SSLParams =org.glassfish.admin.mbeanserver.ssl.SSLParams@195984d7
+2020-09-11T16:42:29.799+0500|Warning: All SSL cipher suites disabled for network-listener(s).  Using SSL implementation specific defaults
+2020-09-11T16:42:29.801+0500|Warning: All SSL cipher suites disabled for network-listener(s).  Using SSL implementation specific defaults
+2020-09-11T16:42:29.801+0500|Info: SSLParams =org.glassfish.admin.mbeanserver.ssl.SSLParams@195984d7
+2020-09-11T16:42:29.803+0500|Info: Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@5467eea4 as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@160396db.
+2020-09-11T16:42:29.831+0500|Info: SSLServerSocket /0.0.0.0:8686 and [SSL: ServerSocket[addr=/0.0.0.0,localport=8686]] created
+2020-09-11T16:42:29.892+0500|Info: HV000001: Hibernate Validator 6.0.10.Final
+2020-09-11T16:42:29.907+0500|Info: visiting unvisited references
+2020-09-11T16:42:30.172+0500|Info: JMXStartupService has started JMXConnector on JMXService URL service:jmx:rmi://DESKTOP-GN0170R:8686/jndi/rmi://DESKTOP-GN0170R:8686/jmxrmi
+2020-09-11T16:42:30.192+0500|Info: Skipping registration of inhabitant for service reference [org.osgi.service.cm.ManagedService] as the service object could not be obtained.
+2020-09-11T16:42:30.193+0500|Info: Skipping registration of inhabitant for service reference [org.osgi.service.metatype.MetaTypeProvider] as the service object could not be obtained.
+2020-09-11T16:42:30.230+0500|Info: visiting unvisited references
+2020-09-11T16:42:30.239+0500|Info: visiting unvisited references
+2020-09-11T16:42:30.240+0500|Info: visiting unvisited references
+2020-09-11T16:42:30.851+0500|Info: Initializing Mojarra 2.3.2 ( 20170627-2139 e63598abf2ed2bb1a24674f308a734e0dce18a72) for context ''
+2020-09-11T16:42:31.466+0500|Info: Loading application [__admingui] at [/]
+2020-09-11T16:42:31.467+0500|Info: Loading application __admingui done in 1,680 ms

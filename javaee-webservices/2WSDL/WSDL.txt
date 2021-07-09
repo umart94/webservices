@@ -1,0 +1,74 @@
+WSDL - Web Services Description Language - XML Based language
+used by webservices to describe functionality that they offer.
+
+equivalent to class and method descriptions of normal code.
+
+a wsdl description of a webservice provides all information about :
+
+how to call the web service
+what parameters to pass
+and what data structures they expect to get back.
+
+
+they key point here is Abstraction
+
+Normal Services
+
+Information Required:
+
+Programming Language
+Method Location
+Data types of inputs.
+Data types of the outputs
+
+wsdl provides standardized messages.
+any computer can read an xml file, there is no need to be compatible to the programming language of the web service
+
+all the end user needs to know is
+
+the data type of input
+and data type of outputs
+
+
+WSDL 2.0 structures each message according to following points:
+
+
+WSDL Message Parts:
+
+1. Service
+service part of the message contains direct references to the endpoints, their bindings and their locations.
+the location is defined by a simple http url string which could be in an external website or port on your computer.
+
+2. Binding
+specifies the interface and tells the reader what kind of soap binding style and transfer will be used
+
+such as RPC or document styling encodings.
+
+it also contains one or more operations tags. that define the operation with soap
+
+3. interface defines webservice itself , including all of the methods
+as with the bindings each method of the webservice is represented by an operation tag
+
+inside that tag there is an input and an output tag
+these indicate to the user what data structures are accepted and returned by the method
+
+these tags are descriptive
+
+e.g
+stock prices
+input tag year
+output tag price.
+
+
+4. types tag defines data itself , this is done using the xml schema language. this essentially converts the descriptive names for the message inputs and outputs
+into raw data types.
+
+from the tags mentioned before.
+we might set type of year to be integer and price to be of the type double.
+
+
+
+
+
+
+

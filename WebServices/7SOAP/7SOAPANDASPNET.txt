@@ -1,0 +1,4 @@
+1. in visual studio , dotnet framework 4.5 and create empty aspnet web app project.
+2. create a web service script file extension of asmx
+3. to make soap service publically available, the annotation WebMethod is used.
+public operation in publically available soap / restful service (combined available in soap service)

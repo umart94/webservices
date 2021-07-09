@@ -1,0 +1,100 @@
+--------------------------MYSQL----------------------------
+configure mysql to use ssl first. use openssl to generate self-signed certificates.
+
+to enable SSL in MySQL (i am using v8)
+Through MySQL Workbench, generate SSL Files.
+afterwards copy them to your directory
+
+and then use that in mysql configuration file ( called my.ini in windows)
+and create a mysql service using this configuration with ssl certificates.
+
+this is required for only MySQL, however now we are coding a Java app using JDK
+--------------------------MYSQL----------------------------
+
+
+
+--------------------------GLASSFISH----------------------------
+so to make the java app use SSL... we used glassfish application server.
+
+
+to make SSL work in glassfish , we first create a domain, and configure the http listener,ports,certificate alias and ssl settings through glassfish panel.
+--------------------------GLASSFISH----------------------------
+
+
+now mysql has ssl and glassfish has ssl. but the jdk and glassfish do not know about the self-signed mysql certificate.
+
+
+so we have to import the MYSQL certificate file, into the JDK Keystore.
+
+[Tampering the default JDK keystore is not recommended]
+
+so what we can do is, use a custom java keystore, import the mysql settings inside that keystore and make connector j use that keystore.
+
+SO CREATE A NEW Keystore.
+
+1. go to jdk/bin dir, jdk must be the same that u used for glassfish ssl.
+in my case its jdk 1.8.144
+C:\Program Files\Java\jdk1.8.0_144\bin
+
+-------------------------- SERVER SSL AUTHENTICATION ---------------------
+2. 
+run this command : 
+keytool -importcert -alias MySQLCACert -file C:\certs\ca-cert.pem -keystore mysqltruststore -storepass mypassword
+
+
+
+To verify the server certificate, Connector/J needs to be able to read the certificate that signed it, that is, the server certificate that signed itself or the self-signed CA certificate. This can be accomplished by either importing the certificate (ca.pem or any other certificate) into the Java default truststore (although tampering the default truststore is not recommended) or by importing it into a custom Java truststore file and configuring the Connector/J driver accordingly. Use Java's keytool (typically located in the bin subdirectory of your JDK or JRE installation) to import the server certificates:
+
+shell> keytool -importcert -alias MySQLCACert -file ca.pem \
+    -keystore truststore -storepass mypassword
+Supply the proper arguments for the command options. If the truststore file does not already exist, a new one will be created; otherwise the certificate will be added to the existing file. Interaction with keytool looks like this:
+
+
+
+THIS WAS FOR  SERVER SSL AUTHENTICATION
+
+-------------------------- SERVER SSL AUTHENTICATION ---------------------
+
+
+
+
+Convert the client key and certificate files to a PKCS #12 archive:
+
+shell> openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem \
+  -name "mysqlclient" -passout pass:mypassword -out client-keystore.p12
+
+
+
+
+-------------------Client Authentication-------------------------
+
+Once you have the client private key and certificate files you want to use, you need to import them into a Java keystore so that they can be used by the Java SSL library and Connector/J. The following instructions explain how to create the keystore file:
+
+
+
+
+
+1.
+
+Convert the client key and certificate files to a PKCS #12 archive:
+
+shell> openssl pkcs12 -export -in C:\certs\client-cert.pem -inkey C:\certs\client-key.pem -name "mysqlclient" -passout pass:mypassword -out client-keystore.p12
+
+
+
+2.
+
+Import the client key and certificate into a Java keystore:
+
+shell> keytool -importkeystore -srckeystore client-keystore.p12 -srcstoretype pkcs12 -srcstorepass mypassword -destkeystore mysqlclientkeystore -deststoretype JKS -deststorepass mypassword
+
+
+
+
+keytool -importkeystore -srckeystore client-keystore.p12 -srcstoretype pkcs12 -srcstorepass mypassword -destkeystore mysqlclientkeystore -deststoretype JKS -deststorepass mypassword
+Entry for alias mysqlclient successfully imported.
+Import command completed:  1 entries successfully imported, 0 entries failed or cancelled
+
+
+
+

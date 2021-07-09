@@ -1,0 +1,51 @@
+ReadOnly Services support only GET and POST
+Some expect URI-based requests with query parameters.
+embedded parameters.
+
+----------
+
+get requests include query parameters in URI.
+
+e.g.
+
+protocol = http
+host = services.explorecalifornia.org
+resource root = tours.php
+parameters = packageid=5
+http://services.explorecalifornia.org/rest/tours.php?packageid=5
+
+
+----------------
+Java standard jdk HttpRequests. through HttpURLConnection class
+Apache HttpClient Libraries.
+
+Android
+Volley by Google , OkHttp and Retrofit.
+
+-----------------
+
+
+
+
+
+iOS and OSX libraries.
+
+AFNetworking https://github.com/AFNetworking/AFNetworking
+ 
+Resty by https://github.com/lukeredpath
+
+RestKit https://github.com/RestKit/RestKit
+
+-----------------
+
+JavaScript XMLHttpRequest.
+
+available on all modern webbrowsers.
+
+---------------
+jQuery AJAX Http - simplifies the above code.
+
+-----------------
+
+
+

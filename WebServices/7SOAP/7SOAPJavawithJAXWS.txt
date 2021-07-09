@@ -1,0 +1,11 @@
+Create new java project (simple) in eclipse.
+create a class with main method
+go to new -> webservices -> new webservice client
+
+server defintion : http://localhost:2190/MyWebService.asmx?WSDL
+
+client type : java proxy 
+
+
+monitor web service : this option allows us to trace xml traffic , soap messages.
+

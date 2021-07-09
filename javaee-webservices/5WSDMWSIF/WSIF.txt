@@ -1,0 +1,32 @@
+Web Services Invocation Framework
+
+java api for web services description language
+alternative for soap apis
+
+alternative to soap
+
+interact with representation of services
+
+work with variety of web services
+
+not all web services written in soap
+
+wsif allows us to add binding extensions ( more binding support than soap)
+
+major strengths 
+
+Multiple bindings
+Dynamic Invocation
+
+we dont have to statically type the binding
+what binding the other service uses, program will check it and choose a binding type dynamically on runtime
+
+
+single instance of web service
+soap bindings
+local bindings 
+
+quickly reimplement web service
+api calls are technologically independent.
+
+

@@ -1,0 +1,18 @@
+try{  
+			Class.forName("com.mysql.cj.jdbc.MysqlDataSource");  
+			Connection con=DriverManager.getConnection(  
+			"jdbc:mysql://localhost:3306/mvc?autoReconnect=true&clientCertificateKeyStoreUrl=file:C:\\certs\\mysqlclientkeystore&clientCertificateKeyStorePassword=PASSWORD","YOURUSER","YOURPASSWORD");  
+			//here mvc is database name, YOURUSER is user and YOURPASSWORD //password  
+			Statement stmt=con.createStatement();  
+			ResultSet rs=stmt.executeQuery("select 4+6 FROM DUAL");  
+			while(rs.next())  
+			//System.out.println(rs.getString(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+			//System.out.println("the sum of 4 and 6 is : "+rs.getInt(1));
+			System.out.println("connection made");
+			con.close();  
+			}catch(Exception e){ 
+				System.out.println("connection lost");
+				System.out.println(e);}  
+			 
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/views/input.jsp");
+		requestDispatcher.forward(request,response);

@@ -1,0 +1,14 @@
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\bin\Debug\WebServicesClient.exe.config
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\bin\Debug\WebServicesClient.exe
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\bin\Debug\WebServicesClient.pdb
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\WebServicesClient.csprojAssemblyReference.cache
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\MainWindow.baml
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\MainWindow.g.cs
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\App.g.cs
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\WebServicesClient_MarkupCompile.cache
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\WebServicesClient.g.resources
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\WebServicesClient.Properties.Resources.resources
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\WebServicesClient.csproj.GenerateResource.cache
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\WebServicesClient.csproj.CoreCompileInputs.cache
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\WebServicesClient.exe
+D:\dev\CSharp\WebServices\SOAPWebServiceClient\WebServicesClient\obj\Debug\WebServicesClient.pdb

@@ -1,0 +1,233 @@
+The password for the keypair, the keystore and master passwords all must be the same - in glassfish.
+
+glassfish masterpassword is changeit
+we can change it through command but for now keep it as it is.
+
+
+Steps:
+1. Generate a Client Key Pair ( Public, Private Key)
+
+# Generate a key pair in keystore.jks
+keytool -genkeypair -alias umar1 -keystore mykeystore.jks -keypass changeit -storepass changeit -keyalg RSA
+
+Give CN: desktop-gn0170r
+
+we need to add a new alias here.
+
+2. Export the Certificate
+# Export the certificate
+keytool -export -keystore mykeystore.jks -alias umar1 -file umar1.cer -storepass changeit
+
+
+3. Import it into the Truststore cacerts.jks file.
+# Import it into the truststore.jks
+keytool -import -noprompt -trustcacerts -file umar1.cer -alias umar1 -keystore cacerts.jks -storepass changeit
+
+
+
+How to check:
+keytool -v -list -alias <the_alias> -keystore <filename>.jks
+
+keytool -v -list -alias umar1 -keystore mykeystore.jks
+
+
+
+Web Interface (GlassFish Administration Console)
+To access the GlassFish Administration Console remotely, the secure administration feature needs to be enabled for the domain first. This can be done by using the following command: asadmin enable-secure-admin example.com
+Once enabled, you can access the administration console via https://example.com:4848. You will need to bypass the certificate warning given by the self-signed certificate that is installed on GlassFish by default.
+
+To enable the certificate via the GlassFish Administration Console, enter this menu: Configurations >> server-config >> HTTP Service >> HTTP Listeners >> http-listener-2:
+
+
+
+
+
+
+
+
+Switch to the SSL tab, enter your certificate alias myalias as the Certificate NickName, and click Save:
+
+
+Enter alias as per in keystore command , and port for https is 443 instead of the default 8181.. change it in domain.xml as well.
+
+
+
+
+The certificate can be installed for the GlassFish Administration Console in the same way by going to HTTP Listeners >> admin-listener
+
+
+
+The certificate can be installed for the GlassFish Administration Console in the same way by going to HTTP Listeners >> admin-listener.
+ 
+It is possible not all configuration references will be updated to the new alias. In this case, it will be necessary to update them manually in domain.xml.
+ 
+Editing domain.xml
+Instead of using the web interface (GlassFish Administration Console), you can manually edit the domain.xml configuration file with the appropriate certificate alias and port. The file is located in glassfish4/glassfish/domains/domain1/config/domain.xml.
+Before opening the file, we recommend stopping the GlassFish service for this domain with the following command:
+asadmin stop-domain example.com
+Open the file with your preferred text editor and locate any reference to s1as, which is the default certificate alias used by GlassFish. s1as should be replaced with myalias,our certificate alias.
+If the file contains references to port 8181, you can also update them to 443:
+
+
+
+
+after generating these files we also have to edit
+
+D:\programfiles\glassfish5\glassfish\domains\domain1\config
+
+domain.xml
+and 
+default-web.xml
+
+we have to change the port, the certificate alias that we created, if we created a keystore we have to change the name of that as well..
+
+
+If all aliases are updated to your alias, the certificate will also be installed for the GlassFish Administration Console.
+Save the changes in domain.xml and start the domain:
+asadmin start-domain example.com
+
+This completes the installation, and the domain can now be accessed via HTTPS.
+You can use this tool to check certificate installation: https://decoder.link/sslchecker.
+Optional configuration
+Using your own keystore
+Instead of importing your keystore into the default GlassFish keystore keystore.jks, you can edit domain.xml to reference your own keystore instead. Similar to the above editing, all references to keystore.jks need to be replaced with your mykeystore.jks keystore filename. In this case, your personal keystore should be placed into the same directory with the default keystore:
+
+
+
+
+
+also for redirecting to https there is a code
+Redirect to HTTPS
+To redirect all HTTP traffic to HTTPS, open default-web.xml (or your web.xml file if you have one) located in the domain config directory glassfish4/glassfish/domains/domain1/config and add the following within <web-app> … </web-app>:
+ <security-constraint>
+   <web-resource-collection>
+     <web-resource-name>Viewpoint Secure URLs</web-resource-name>
+     <url-pattern>/*</url-pattern>
+   </web-resource-collection>
+   <user-data-constraint>
+     <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+   </user-data-constraint>
+ </security-constraint>
+An example of what it might look like:
+
+
+Save the changes and restart the domain – this will complete the setup.
+Troubleshooting
+This section covers several more or less common errors that can be encountered during installation, checking errors, and guidelines for password changes.
+Errors
+keytool error: java.io.IOException: Keystore was tampered with, or password was incorrect
+This keytool error will be displayed during any action with the keystore if the entered keystore password or private key password is incorrect.
+If you do not remember the password, unfortunately, there is no way to recover it, and you will need to create a new keystore.
+
+
+keytool error: java.lang.Exception: Failed to establish chain from reply
+The above error occurs when the keystore does not have the intermediate certificates (otherwise known as the CA bundle) needed to establish the full chain. Make sure you have imported the CA bundle certificates first, or better, try importing the certificate in PKCS#7.
+There is a process already using the admin port 4848 — it probably is another instance of a GlassFish server.Command start-domain failed.
+If you cannot start the domain with this error being displayed, you will need to kill the java process manually. First, run this command to locate the process:
+sudo netstat -ntulp
+
+Copy the PID of java running on your GlassFish ports (15780 in the above screenshot), and run this command to kill the process:
+kill 15780
+You will now be able to start the domain using the usual asadmin commands.
+Checking errors / Debug
+If you encounter any issues with the HTTPS connection, it is worth checking the server log for errors, which is located in glassfish4/glassfish/domains/domain1/logs/server.log.
+This will contain sufficient information on the SSL errors; however, if you feel it is not enough, you can set the debug level to SSL in domain.xml by adding the following JVM option within the <java-config> section: <jvm-options>-Djavax.net.debug=SSL</jvm-options>
+
+--------------------------------------------------------
+cacerts.jks - is the Truststore
+Truststore
+used to hold clients public keys
+used to hold server public keys if communicating with server over https
+
+keystore.jks is the Keystore
+used to hold only Our Own public/private key pair
+
+
+Oracle GlassFish Server 3.0.1 Administration Guide
+Previous: Authentication Types
+Next: Administration Password
+Master Password and Keystores
+The master password is an overall shared password and is the most sensitive piece of data in the system. It is never used for authentication and is never transmitted over the network. You can choose to enter the master password manually when required, or obscure it in a file.
+
+The master password is the password for the secure keystore. When a new GlassFish Server domain is created, a new self-signed certificate is generated and stored in the relevant keystore, which is locked using the master password (default password changeit). If the master password is not the default (that is, you have changed it), you are prompted for the master password. After the correct master password is entered, the domain starts.
+
+Previous: Authentication Types
+Next: Administration Password
+© 2010, Oracle Corporation and/or its affiliates
+
+
+-----------------------------------------------------------------
+Checking the keystore
+You can check the content of a keystore with this command:
+keytool -list -keystore mykeystore.jks
+This will give you a short list of all entries in the keystore. To get more information on each entry (e. g., how many certificates it contains, or if there is a private key), you can add the -v flag:
+
+keytool -list -v -keystore mykeystore.jks
+In the below example, the keystore example.jks contains only one entry with a private key:
+
+Changing passwords
+For the certificate to work, the GlassFish master password for the domain, the keystore password, and the private key password must all be the same. If they are not, you will receive various errors upon HTTPS connection and in the server log. To make sure all three passwords are the same, you can use the commands below to change them.
+
+– GlassFish domain master password
+The GlassFish master password is “changeit” by default and can be changed with the change-master-password subcommand of asadmin:
+asadmin change-master-password domain1
+– Keystore password
+The password to a keystore can be changed with the following keytool command:
+keytool -storepasswd -keystore mykeystore.jks
+– Private key password
+The password to the private key within the keystore can be changed with this command:
+keytool -keypasswd -alias myalias -keystore mykeystore.jks
+
+
+2020-09-11T19:48:28.875+0500|Info: JACC Policy Provider: Failed Permission Check, context(HelloWorld/HelloWorld)- permission(("javax.security.jacc.WebUserDataPermission" "" "GET"))
+2020-09-11T19:48:46.295+0500|Info: JACC Policy Provider: Failed Permission Check, context(HelloWorld/HelloWorld)- permission(("javax.security.jacc.WebUserDataPermission" "/HelloWorldService" "GET"))
+2020-09-11T19:48:46.303+0500|Info: Invoking wsimport with https://localhost/HelloWorld/HelloWorldService?WSDL
+2020-09-11T19:48:46.330+0500|Info: parsing WSDL...
+
+2020-09-11T19:48:46.621+0500|Info: Generating code...
+
+2020-09-11T19:48:46.651+0500|Info: Compiling code...
+
+2020-09-11T19:48:46.752+0500|Info: wsimport successful
+2020-09-11T19:49:16.112+0500|Info: Invoking wsimport with https://localhost/HelloWorld/HelloWorldService?WSDL
+2020-09-11T19:49:16.114+0500|Info: parsing WSDL...
+
+2020-09-11T19:49:16.144+0500|Info: Generating code...
+
+2020-09-11T19:49:16.152+0500|Info: Compiling code...
+
+2020-09-11T19:49:16.218+0500|Info: wsimport successful
+2020-09-11T19:49:22.711+0500|Info: Invoking wsimport with https://localhost/HelloWorld/HelloWorldService?WSDL
+2020-09-11T19:49:22.713+0500|Info: parsing WSDL...
+
+2020-09-11T19:49:22.743+0500|Info: Generating code...
+
+2020-09-11T19:49:22.772+0500|Info: Compiling code...
+
+2020-09-11T19:49:22.840+0500|Info: wsimport successful
+
+
+View WSDL
+If the server or listener is not running, the link may not work. In this case, check the status of the server instance. After launching the web service test form, use the browser's Back button to return to this screen
+
+Application Name:
+HelloWorld
+Links:
+[server]	http://DESKTOP-GN0170R:8080/HelloWorld/HelloWorldService?wsdl
+[server]	https://DESKTOP-GN0170R:443/HelloWorld/HelloWorldService?wsdl
+
+we still have this error
+2020-09-11T19:48:46.295+0500|Info: JACC Policy Provider: Failed Permission Check, context(HelloWorld/HelloWorld)- permission(("javax.security.jacc.WebUserDataPermission"
+
+
+
+
+
+
+
+
+
+
+
+
+

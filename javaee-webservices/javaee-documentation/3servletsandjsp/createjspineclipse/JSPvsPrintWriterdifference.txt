@@ -1,0 +1,50 @@
+before we used printwriter to output html
+
+now , the user wants to fetch the JSP page
+
+
+so 
+
+the SERVLET class will forward the HTTPServletRequest to the JSP page.
+
+and the JSP Page will be sent in the response.
+
+
+The ResquestDispatcher is used for this purpose :
+
+The ResquestDispatcher Defines an object that receives requests from the client and sends them to any resource (such as a servlet, HTML file, or JSP file) on the server. The servlet container creates the RequestDispatcher object, which is used as a wrapper around a server resource located at a particular path or given by a particular name.
+This interface is intended to wrap servlets, but a servlet container can create RequestDispatcher objects to wrap any type of resource.
+
+
+the request is what the client sends to the servlet.
+we obtain the requestdispatcher object from the request.
+
+
+RequestDispatcher view = request.getRequestDispatcher("WEB-INF/views/testdisplay.jsp");
+
+the argument to request dispatcher is the jsp page we want to send as response.
+
+
+import requestdispatcher from javax.servlet... and not glassfish :D
+
+
+		view.forward(request,response);
+the request will be from client end browser.
+the view, is what we obtained above using request dispatcher.
+
+we forward the request 
+
+forward(ServletRequest request, ServletResponse response)
+Forwards a request from a servlet to another resource (servlet, JSP file, or HTML file) on the server.
+
+the request is now on JSP page.
+
+jsp will write html to response
+
+browser gets back the html written to response by the JSP VIEW.
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+You'll need to add the Sapphire update site, http://download.eclipse.org/sapphire/9.1.1/repository , to your list of Available Software Sites so that it can be found.
+
+
+glassfish works with ~ jdk8 , jdk11 so try to use LTS jdk8
+
+specifically jdk 1.8 172 update works
+but later updates do not work with glassfish5 and will give ssl errors.
+
+TO MAKE ECLIPSE WORK - USE JDK 1.8 172
+
+to make the web app work use jdk 1.8.144 and glassfish5
+
+
+
+
+after sapphire, install eclipse WTP
+
+Tools for developing applications for GlassFish.
+•Integrates with Eclipse Web Tools.
+•Supports open source GlassFish 5, 4 and 3.1.
+•Support the latest Eclipse GlassFish 5.1, the reference implementation of the Jakarta EE specification
+
+Download latest Eclipse GlassFish Tools from: https://projects.eclipse.org/projects/webtools.glassfish-tools
+
+These features are also part of Oracle Enterprise Pack for Eclipse (OEPE).
+
+IMPORTANT: Please consult the following table regarding the minimum version of Java required to run GlassFish Tools.
+•Photon - Java 8
+•Oxygen - Java 8
+•Neon - Java 8
+•Mars - Java 8
+•Luna - Java 8
+•Kepler - Java 7
+•Juno - Java 6
+
+Even if the correct version of Java is installed, Eclipse may find an earlier version upon launch, if it exists somewhere else on the system. To verify the version of Java that Eclipse is using, go to Help -> About -> Installation Details -> Configuration.
+
+If you find that Eclipse is using a wrong Java install, edit eclipse.ini file and add the following two lines to the start of the file:
+
+my eclipse.ini file ( located in eclipse folder )
+
+-vm
+C:\Program Files\Java\jdk1.8.0_172\bin\javaw.exe
+-startup
+plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar
+--launcher.library
+plugins/org.eclipse.equinox.launcher.win32.win32.x86_64_1.1.1200.v20200508-1552
+-product
+org.eclipse.epp.package.jee.product
+-showsplash
+org.eclipse.epp.package.common
+--launcher.defaultAction
+openFile
+--launcher.defaultAction
+openFile
+--launcher.appendVmargs
+-vmargs
+-Dosgi.requiredJavaVersion=1.8
+-Dosgi.instance.area.default=@user.home/eclipse-workspace
+-XX:+UseG1GC
+-XX:+UseStringDeduplication
+--add-modules=ALL-SYSTEM
+-Dosgi.requiredJavaVersion=1.8
+-Dosgi.dataAreaRequiresExplicitInit=true
+-Xms256m
+-Xmx2048m
+--add-modules=ALL-SYSTEM
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------
+
+
+Web Developer tools is different from Web Tools Platform
+
+install WTP and WTP SDK
+
+https://download.eclipse.org/glassfish-tools/1.0.1/repository/
+
+You need to install Sapphire 9.1.1 before installing the GlassFish Tools.
+
+To install:
+
+Open Eclipse
+Click on Help option
+Click Install New Software
+Work with: https://download.eclipse.org/sapphire/9.1.1/repository/
+Hit Enter on your keyboard
+Select Sapphire
+Install
+Eclipse should restart after completing the installation process.
+Then follow the same steps to install GlassFish but for step 4 use the following link for GlassFish to Work with https://download.eclipse.org/glassfish-tools/1.0.1/repository/
+
+Reference: https://projects.eclipse.org/projects/webtools.glassfish-tools/downloads
+
+
+
+
+
+
+GlassFish is an open-source Jakarta EE platform application server project started by Sun Microsystems, then sponsored by Oracle Corporation, and now living at the Eclipse Foundation and supported by Payara, Oracle and Red Hat.[2] The supported version under Oracle was called Oracle GlassFish Server. GlassFish is free software and was initially dual-licensed under two free software licences: the Common Development and Distribution License (CDDL) and the GNU General Public License (GPL) with the classpath exception. After having been transferred to Eclipse, GlassFish remained dual-licensed, but the CCDL license was replaced by the Eclipse Public License (EPL).[3]
+
+GlassFish is the reference implementation of Jakarta EE and as such supports EJB, JPA, JSF, JMS, RMI, JSP, servlets, etc. This allows developers to create enterprise applications that are portable and scalable, and that integrate with legacy technologies. Optional components can also be installed for additional services.
+
+Built on a modular kernel powered by OSGi, GlassFish runs straight on top of the Apache Felix implementation. It also runs with Equinox OSGi or Knopflerfish OSGi runtimes. HK2 abstracts the OSGi module system to provide components, which can also be viewed as services. Such services can be discovered and injected at runtime.
+
+GlassFish is based on source code released by Sun and Oracle Corporation's TopLink persistence system. It uses a derivative of Apache Tomcat as the servlet container for serving Web content, with an added component called Grizzly which uses Java New I/O (NIO) for scalability and speed.
+
+
+
+

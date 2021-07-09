@@ -1,0 +1,59 @@
+Envelope
+this is a container for the document that identifies it as a soap message
+this element is required in order to inform the recipient on how to use the document
+as opposed to just an oridinary  xml doc.
+
+optional header contains descriptive metadata for the main document
+this is not required
+but its been official to aid in searching or modifying large soap messages
+
+the body is the most important part
+it contains all of the calls and responses
+this defines the actual function of the soap message
+
+finally it is possible to define error checking through a fault element
+this is a diagnostic tool for sender to see anything that goes wrong during recipients processing of the message
+
+Envelope tag, put reference to the envelope
+the url refers to another webservice, that defines the envelope used in a soap message.
+
+Header
+beginning of the header- header blocks inside the header are application defined, and they can be inserted with the header tag format
+fixed tags that can be used to change how the soap message can be extended.
+
+soap provides limited encodingStyles that must be followed.
+
+role tag specifies which nodes are allowed to  process which parts of the header block.
+roles are defined by uri
+using them you can specify a particular website
+or computer that is allowed to execute a certain header block rather than have it be executed by all nodes
+
+e.g
+http://w3.org/2003/05/soap-envelope/next - tells all nodes in the message path to examine the header block
+
+http://w3.org/2003/05/soap-envelope/ultimateReceiver - only the ultimateReceiving node will be able to examine the header.
+
+mustUnderstand tag designates whether a node is required to process a specific header block. this is a method of error checking
+because setting 
+mustUnderstand=true, requires every node to either process the block correctly and completely or throw a false.
+mustUnderstand=false, node will attempt to process a block, but if it fails to do so then it will move on to the next one without throwing an error  
+
+env relay , determines whether a node should remove a header block from a soap message after processing it
+this is useful if we want a specific header block to only be processed once by a single node and then never used again.
+
+
+within the body tag, we can include the actual message to be transferred.
+
+fault tag has a unique identifier for the fault
+and an explanation for error and identifier as to which node caused the fault.
+
+
+<?xml version='1.0' ?>
+<env:Envelope xmlns:env=http://w3.org/2003/05/soap-envelope>
+<env:Header>
+<env:EncodingStyle>
+<env:role http://w3.org/2003/05/soap-envelope/next>
+<env:role mustUnderstand="true">
+<env:relay>
+
+<env:body>

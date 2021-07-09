@@ -1,0 +1,20 @@
+<?xml version='1.0' ?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+	<env:Header>
+		<m:getPrice xmlns:m="http://stockPrice/StockPrice/getPriceRequest"
+			env:role="http://www.w3.org/2003/05/soap-envelope/next"
+				env:mustUnderstand="true">
+		</m:getPrice>
+		<m:updatePrice xmlns:m="http://stockPrice/StockPrice/updatePriceRequest"
+			env:role="http://www.w3.org/2003/05/soap-envelope/ultimateReceiver"
+				env:mustUnderstand="false">
+		</m:updatePrice>
+		<m:addStock xmlns:m="http://stockPrice/StockPrice/addStockRequest"
+			env:role="http://www.w3.org/2003/05/soap-envelope/none"
+				env:mustUnderstand="false">
+		</m:addStock>
+	</env:Header>
+	<env:Body>
+		[body here]
+	</env:Body>
+</env:Envelope>

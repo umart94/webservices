@@ -1,0 +1,60 @@
+http methods
+target processes request
+returns output in xml and json
+
+rest uses a different format for sending vs receiving requests.
+
+
+RESTful methods
+
+1. get 
+
+GET /users/name HTTP/1.1
+
+first part is the GET method
+second part is the directory structure
+finally http/1.1 tells what format we are using to write the message.
+
+the complete get request would look like this :
+
+GET /users/name HTTP/1.1
+Host: servername
+Accept: text/xml
+
+
+GET /users/adduser?username=name HTTP/1.1
+retrieve the username and add user in a single request.
+
+get put and delete requests are supposed to be idempotent
+
+running the request again with the same parameters should cause no further change.
+
+only the post method is not idempotent.
+post method can make further changes.
+
+
+
+
+
+2. put
+
+
+
+
+
+
+3. post
+change accept to content-type
+
+POST /users/name HTTP/1.1
+Host: servername
+Content-Type: text/xml
+
+<?xml version="1.0">
+<tag name="example">
+<data/>
+</tag>
+
+
+4. delete
+

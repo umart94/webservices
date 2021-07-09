@@ -1,0 +1,13 @@
+API Key : arbitrary string issued to web developer by web service provider that developer includes in web service requests.
+
+the api key is received by web service provider as a part of the request and compared to a data store on the server to authenticate the request
+
+by design they are very hard to spoof.
+
+-------------------------------------
+for large scale applications we need a license from the api key provider. ( web service provider)
+
+1. indicate which services we want to use
+2. we need to be authenticated to the web service provider for api key
+
+if we are making requests from web browsers / web clients we already have the api key so we can start making requests using this key

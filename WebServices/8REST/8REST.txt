@@ -1,0 +1,43 @@
+REST Goals:
+
+scalability
+generality of interfaces
+independent deployment of components
+
+REST Messages:
+
+request -> URIs with parameters.
+
+depends on service specification.
+
+we change and customize. rest is not that much strict on the xml rules that soap had.
+
+parameters are also in body of the format.
+
+-----------------------
+
+Popular XML-based Formats : 
+Custom like Plain Old XML POX
+ATOM
+RSS
+
+
+--------------
+
+newer webservices return json
+
+less metadata.
+smaller and faster.
+
+------------------
+
+browser requests and responses.
+
+Browser ----> REQUEST METHOD GET,POST,PUT,DELETE -----> Server
+Browser <---- HTML OR OTHER RESOURCES XML,JSON etc. (RESPONSE FORMAT) ---- SERVER
+
+
+
+
+--------------------
+

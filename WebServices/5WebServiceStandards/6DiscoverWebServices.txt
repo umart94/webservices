@@ -1,0 +1,54 @@
+how to lookup web services that are not well known. ?
+
+UDDI
+
+Universal Description Discovery and Integration.
+
+WS-I - web services interoperability.
+
+UD Based Registries.
+
+designed around soap based web services.
+
+Microsoft,IBM,SAP
+
+public registries.
+
+these were closed
+
+------------
+UDDI Public Registries Now closed
+
+
+https://juddi.apache.org/
+
+-------------------
+Public UDDI is indeed dead, but it managed to survive in private registries inside enterprises.
+
+A UDDI registry's functional purpose is the representation of data and metadata about Web services. A registry, either for use on a public network or within an organization's internal infrastructure, offers a standards-based mechanism to classify, catalog, and manage Web services, so that they can be discovered and consumed by other applications.
+
+http://uddi.org/pubs/uddi-tech-wp.pdf
+This isn't bad for a definition and purpose, unfortunately it was applied at the web level.
+
+UDDI was supposed to be the "yellow pages" of web services. If you wanted to find a web service providing a certain functionality, you would look it up inside the UDDI.
+
+The idea was to use a standard (universal) mechanism for online interaction between SOA businesses components. You then dynamically looked up services, connected to them and do business automatically. And the decision for choosing between similar services was supposed to happen based on the metadata found in the UBR (all of it inside a very complex model which discouraged adoption) with no way of checking if the service actually did what you were expecting it to do.
+
+But bringing every interaction to a common ground was impossible because businesses are highly heterogeneous. And businesses still revolves around people, human activity and human decisions.
+
+Business are conducted between partners that choose to make business with each other only after thorough analysis and negotiation, before finally striking a business deal and agree on all terms and conditions. Only then their infrastructures are connected. And at this point the UDDI definition does start to make sense, because within the enterprise UDDI allows you to:
+
+relocate services without any of the clients failing;
+supports load balancing;
+improves efficiency by reducing manual interventions within the infrastructure;
+manage redundancy (if one service fails the clients will search for another service providing the same functionality);
+etc
+.. but all of this within a confined set of predetermined services who's functionality is well established and agreed upon.
+----------------------------
+
+
+uddi used in private enterprises - integration across enterprise and with business partners
+
+https://www.programmableweb.com/
+
+get all known apis.

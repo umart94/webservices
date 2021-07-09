@@ -1,0 +1,32 @@
+it is a service provided over a network
+website is a communication between client pc - with a human to a server pc. a computer
+
+
+a webservice can be thought of as a communication between two computers
+
+External server - has a database - 
+web server ( interface ) 
+client pc 
+
+makes a web request through this web service interface. which then retrieves data from external server.
+
+within a program communcation is simple and straightforward
+
+a java program supports data types.
+it communicates with another java program easily. through data structures.
+
+however internet has lot of programs written in different languages.
+
+web services provide compatibility between different programs written in different languages.
+in a standard format request response structure.
+
+External server is a black box
+
+we do not need to know implementation and code
+
+web service accepts inputs A, B, C
+outputs data.
+
+in language called XML Format, this is just plaintext with some tags.
+xml is universally compatible.
+

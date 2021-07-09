@@ -1,0 +1,18 @@
+1. servlets and jsp pages will make up the web app
+2. ejb enterprise java beans connect the web app to a robust server side system
+3. jpa java persistence api is for database communication
+4. jax-rs rest web services framework will be used to expose our app through rest api so other apps will be able to use our application.
+
+5. CDI context and dependency injection
+
+6. jax-ws soap web services
+7. jms java message system
+8. cdi
+9. java server faces
+10. java ee security framework.
+
+
+
+deployment on glassfish , wildfly , jboss 
+
+hibernate and how it differs from jpa.

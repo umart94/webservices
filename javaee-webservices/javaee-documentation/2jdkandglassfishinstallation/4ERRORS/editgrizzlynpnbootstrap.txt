@@ -1,0 +1,3 @@
+The issue appears because Glassfish embeds native sun.* classes into [glassfish5_home]/glassfish/modules/endorsed/grizzly-npn-bootstrap.jar, so it conflicts with others classes included into [JDK_HOME]/jre/lib/jsse.jar
+
+So edit the grizzly-npn-bootstrap.jar (make a copy before) file and remove the sun folder.

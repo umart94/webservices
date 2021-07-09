@@ -1,0 +1,11 @@
+Client-side scripting
+Client-side scripting is changing interface behaviors within a specific web page in response to mouse or keyboard actions, or at specified timing events. In this case, the dynamic behavior occurs within the presentation. The client-side content is generated on the user's local computer system.[4]
+
+Such web pages use presentation technology called rich interfaced pages. Client-side scripting languages like JavaScript or ActionScript, used for Dynamic HTML (DHTML) and Flash technologies respectively, are frequently used to orchestrate media types (sound, animations, changing text, etc.) of the presentation. Client-side scripting also allows the use of remote scripting, a technique by which the DHTML page requests additional information from a server, using a hidden frame, XMLHttpRequests, or a Web service.
+
+The first widespread use of JavaScript was in 1997, when the language was standardized as ECMAScript and implemented in Netscape 3.[5]
+
+Example
+The client-side content is generated on the client's computer. The web browser retrieves a page from the server, then processes the code embedded in the page (typically written in JavaScript) and displays the retrieved page's content to the user.[6]
+
+The innerHTML property (or write command) can illustrate the client-side dynamic page generation: two distinct pages, A and B, can be regenerated (by an "event response dynamic") as document.innerHTML = A and document.innerHTML = B; or "on load dynamic" by document.write(A) and document.write(B).

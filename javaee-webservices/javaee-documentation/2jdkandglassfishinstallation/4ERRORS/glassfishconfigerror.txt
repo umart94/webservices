@@ -1,0 +1,48 @@
+glassfish v5 works with jdk1.8.0_144
+ssl will also work with this configuration
+
+
+make eclipse.ini use jdk jdk1.8.0_172
+
+
+in glassfish configuration, xml file make note of the ports being used
+
+if some other application is using that port,
+
+glassfish will give errors like :
+
+1. connection closed
+2. ioexception
+3. cannot set the error page
+
+so disable the services on those ports or change glassfish port.
+
+
+
+also the username password that you set with your configuration will be required
+
+if that is incorrect, glassfish will not start..
+
+we will need to allow the security exception on browser, since ssl certificate is self signed.
+
+
+afterwards the glassfish config page should show..
+
+
+
+it will give a few errors... since we created a new project and it takes time for all the classes to load...
+
+
+so for this, either refresh the page... or wait for the wsdl and tester files to load 
+
+or refresh then click on them again..
+
+
+
+
+
+
+
+
+
+

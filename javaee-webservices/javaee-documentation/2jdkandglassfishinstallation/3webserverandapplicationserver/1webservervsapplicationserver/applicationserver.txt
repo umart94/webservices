@@ -1,0 +1,47 @@
+An application server is a server that hosts applications.[1]
+
+Application server frameworks are software frameworks for building application servers. An application server framework provides both facilities to create web applications and a server environment to run them.
+
+An application server framework contains a comprehensive service layer model. It includes a set of components accessible to the software developer through a standard API defined for the platform itself. For Web applications, these components usually run in the same environment as their web server(s), and their main job is to support the construction of dynamic pages. However, many application servers do more than generate web pages: they implement services such as clustering, fail-over, and load-balancing, so developers can focus on implementing the business logic.[2]
+
+In the case of Java application servers, the server behaves like an extended virtual machine for running applications, transparently handling connections to the database on one side, and, often, connections to the Web client on the other.[citation needed]
+
+Other uses of the term may refer to the services that a server makes available or the computer hardware on which the services run
+
+
+
+
+
+
+
+
+
+
+
+
+Application Server definition
+Application servers are system software upon which web applications or desktop applications[citation needed] run. Application servers consist of web server connectors,[clarification needed] computer programming languages, runtime libraries, database connectors, and the administration code needed to deploy, configure, manage, and connect these components on a web host. An application server runs behind[citation needed] a web Server (e.g. Apache or Microsoft Internet Information Services (IIS)) and (almost always) in front of an SQL[citation needed] database (e.g. PostgreSQL, MySQL, or Oracle). Web applications are computer code which run atop application servers and are written in the language(s) the application server supports and call the runtime libraries and components the application server offers.
+
+Many application servers exist. The choice impacts the cost, performance, reliability, scalability, and maintainability of a web application.
+
+Proprietary application servers provide system services in a well-defined but proprietary manner. The application developers develop programs according to the specification of the application server. Dependence on a particular vendor is the drawback of this approach.
+
+An opposite but analogous case is the Java EE platform. Java EE application servers provide system services in a well-defined, open, industry standard. The application developers develop programs according to the Java EE specification and not according to the application server. A Java EE application developed according to Java EE standard can be deployed in any Java EE application server making it vendor independent.
+
+
+
+
+IIS in MS
+Glassfish in Java.
+
+
+
+
+
+
+
+
+
+
+
+

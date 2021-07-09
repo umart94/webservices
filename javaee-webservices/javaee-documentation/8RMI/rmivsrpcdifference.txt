@@ -1,0 +1,133 @@
+1. Approach:
+
+RMI uses an object-oriented paradigm where the user needs to know the object and the method of the object he needs to invoke.
+
+RPC doesn't deal with objects. Rather, it calls specific subroutines that are already established.
+
+2. Working:
+
+With RPC, you get a procedure call that looks pretty much like a local call. RPC handles the complexities involved with passing the call from local to the remote computer.
+
+RMI does the very same thing, but RMI passes a reference to the object and the method that is being called.
+
+RMI = RPC + Object-orientation
+
+3. Better one:
+
+RMI is a better approach compared to RPC, especially with larger programs as it provides a cleaner code that is easier to identify if something goes wrong.
+
+4. System Examples:
+
+RPC Systems: SUN RPC, DCE RPC
+
+RMI Systems: Java RMI, CORBA, Microsoft DCOM/COM+, SOAP(Simple Object Access Protocol)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Remote Procedure Call (RPC) is a inter process communication which allows calling a function in another process residing in local or remote machine.
+
+Remote method invocation (RMI) is an API, which implements RPC in java with support of object oriented paradigms.
+
+You can think of invoking RPC is like calling a C procedure. RPC supports primitive data types where as RMI support method parameters/return types as java objects.
+
+RMI is easy to program unlike RPC. You can think your business logic in terms of objects instead of a sequence of primitive data types.
+
+RPC is language neutral unlike RMI, which is limited to java
+
+RMI is little bit slower to RPC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"webservice" is a generic term for a remote service accessed programmatically, although it usually is used to refer to a SOAP web service, e.g. SOAP XML messages passed via HTTP.
+
+RPC (Remote Procedure Call) is a rather old-fashioned term for invoking a service remotely. The term isn't used much any more.
+
+RMI is a specific Java technology for invoking methods on remote objects. It's java only, and uses a binary wire protocol (JRMP).
+
+
+
+
+
+
+
+As Daff says, Java RMI itself is really only relevent to Java-to_Java communications. In terms of ease of development these days the degree of coding from the service provider's perspective is pretty similar.
+
+However in addition to performance issues, where the gap between WebServices and RMI is quite variable (for some message sizes there can be negligable difference,) there's another aspect to consider: resilience.
+
+Typically, RMI is easy to set up when one client talks to one server and you don't mind the availability of the client being coupled to that of the single server. Server down, client down, such is life.
+
+In the Web Service case you can quite easily deploy your service to a cluster of servers and, given that you are invoking the Web Service over HTTP, you can easily exploit all the normal network routing and spraying techniques used in larger scale web sites. No special coding needed in the server or the client.
+
+Now, you can get this same level of resilience with RMI, but that requires a slightly better service-provision infrastructure and thats's where the Java EE EJB programming model (or frameworks such as Spring) come in to play. EJB uses RMI over IIOP, a protocol that allows for resilient calling to server instances, transparently dealing with server outages. [It does quite a lot more too, such as secutiry and transactions, but then so can Web Services. Interesting but not part of this discussion.]
+
+Bottom line: For production quality service provision I normally start by creating an service object. I happen to use Java EE EJB 3, other folks use Spring. You can expose that service object as a Web Service or as RMI/IIOP with some very simple configuration/annotation. It's very little effort to pick either or both. My world happens to major on interop, so I tend to expose Web Services. If you have only Java to consider it may give some performance improvement to use RMI/IIOP but this is not guaranteed, you would need to measure perfromance to be sure.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RPC and RMI are tightly coupled ways to invoke a method on a remove server application. RCP is the C/C++ version, RMI is the Java version, see What is the difference between Java RMI and RPC? for further info. But you can safely forget about RPC and RMI because they have this tight coupling and they are considered 'unmodern' by now. For example to get the address of 'Pete' from a server, the client would call something like: address = server.getAddress("Pete") The problem here is that when you make a little change on the Server's API, you need to upgrade all clients as well. If you have more than one client to one server, it leads to 'upgrade hell'.
+
+JMS is better because you communicate over messages, not method invocations. You send the information packets (=messages) from one component to the other. Informing the other side about events. For example client1 could send a message: msg.setJMSReplyTo("client1"); producer.send( "ADDRESS-SERVER", msg ); response = consumer.receive() (pseudo-code) and get the message. The server could add new response fields (street/ZIP code), e.g. for client2, to the address without breaking the communication with client1.
+
+JMS can be request/reply, but can also be publish-subscribe (the best method for enterprise integrations). JMS providers are many, some free like ActiveMQ and usually very efficent in terms of messages per second.
+
+WebServices are HTTP-based. Either REST or SOAP. SOAP is kind of outdated. REST makes use of special URL's to GET or POST information to/from a webserver. If high performance is important (100k requests per second or more), you should consider JMS, but if you have experience with WebServers, etc. also REST could be good for integration. One advantage of WebServices is that you can use standard Browsers to debug this service and that often firewalls are easier to get opened on port 8080.
+
+My advice, if you don't have preferences: learn about JMS Topics and start thinking how to solve problems with 'event-driven/push-computing' - especially in the backend this is a good architecture. For more frontend-related integration REST WebServices is the way to go.

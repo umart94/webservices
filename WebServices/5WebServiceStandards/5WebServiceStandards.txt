@@ -1,0 +1,79 @@
+SOAP , REST , OData
+Web Service Standards.
+-----------------------
+
+1. SOAP [ the format]
+foundation of WS-* standards. (Web Service Everything)
+Service Oriented Architecture.
+originally championed by microsoft.
+Remote Object Proxy Engine.
+managed by w3c since 2001
+
+The role of SOAP Toolkits.
+called functions called operations
+defined by service being used.
+resulting code looks like code they call in local environment.
+
+
+SOAP Library implementation (1 on client and 1 on server)
+
+soap was used in early 2000s.
+
+SOAP was very verbose
+lots of attributes and annotations
+it required more text
+
+also the engines that parse soap messages vary.
+
+
+SOAP not good for mobiles.
+BUT
+SOAP has good standards for security and enterprise development.
+
+----------------------------
+
+2. RESTful ( mid 2000s)
+
+REST -- Representational State Transfer. (Roy Fielding)
+
+it is an architecture, not just a message format.
+http actions and requests are mapped to server side restful requests. similiarly each request has a verb and we can use many message formats.
+
+1. Stateless : each request is independent.
+2. Cacheable: results can be cached on client to reduce transactions.
+
+REST better for mobiles ( any web service that returns json message formats, due to the smaller size of json)
+----------------------------
+
+3. OData (a RESTful Standard) - based on REST
+
+send OData requests in form of URIs and get data back in parsable form.
+
+OData has strict data rules.
+choose between xml and json.
+
+------------------------------
+Other WebService Standards.
+
+XML-RPC : XML REMOTE PROCEDURE CALL
+
+UDDI : UNIVERSAL DISCOVERY AND DESCRIPTION
+
+WSDL : WEB SERVICE DESCRIPTION LANGUAGE.
+
+WSDM : WEB SERVICE DISTRIBUTED MANAGEMENT.
+
+WS-* : Web Service Everything
+
+-----------------
+
+
+web services interoperability organization
+
+http://ws-i.org/
+
+
+
+
+
+

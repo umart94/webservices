@@ -1,0 +1,48 @@
+v 1.1
+released may 2000
+based on XML 1.0, which is a specific type of serialization
+only supports http
+supported by JAX-WS
+not compatible with soap 1.2
+
+soap 1.1 error checking
+available tags
+
+<faultcode> - uniquely identifies the fault
+<faultstring> - error message seen by a human
+<faultactor> - identifier for the node that created the fault
+<detail> - application specific error information related to the body element
+
+
+
+
+
+----------------------
+v 1.2
+june 2003
+based on xml information set - which provides a way to describe an xml document
+but does not necessarily serialize the document with xml 1.0
+
+as a result, soap 1.2 can use other serialization formats. such as a binary protocol format which can be more compact than a 
+soap 1.1 message.
+
+supports any protocol that conforms to its framework
+tcpip etc.
+supported by JAX-WS
+
+compatible with soap 1.1 (backwards compatible)
+(however, some features may not be available in 1.1)
+
+in soap 1.2
+<detail> - application specific error information related to the body element - this tag remains same as in 1.1
+<faultcode> replaced with <Code>
+<faultstring> replaced with <Reason>
+<faultactor> replaced with <Node>
+
+<Role> - a completely new element
+this indicates the role the node was playing when fault occured.
+
+
+
+
+

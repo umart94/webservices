@@ -1,0 +1,11 @@
+The type of the new project is , after you have installed all the necessary eclipse addons : 
+
+
+in Web Category :
+
+Dynamic Web Project.
+
+
+we can select the JAX versions of the projects, but the Web Category :
+
+Dynamic Web Project. is for when we want to create the project from scratch.

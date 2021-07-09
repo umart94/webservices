@@ -1,0 +1,28 @@
+anything under web inf is protected from direct access from a browser.
+
+create a new folder views under web inf
+then create a jsp file.
+
+
+
+https://localhost/servletprint/WEB-INF/views
+https://localhost/servletprint/views
+
+whatever is the path of that views directory of web inf directory
+
+WE CANNOT ACCESS WEB INF FROM BROWSER.
+
+we want to put views there, so it wont be accessed by browser
+
+but our servlet will route /forward to the views
+
+so only through our servlet class we can AND SHOULD access the views.
+
+
+datafiles
+web xml file
+java classes and servlets 
+
+that we do not want to pe public will go in web inf directory.
+
+

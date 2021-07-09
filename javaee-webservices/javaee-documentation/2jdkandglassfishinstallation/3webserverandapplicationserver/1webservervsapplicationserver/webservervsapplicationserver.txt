@@ -1,0 +1,42 @@
+a web server is the same as an application server except that
+
+an application server also adds some additional features.
+
+
+A web server is something that handles HTTP requests and responses.
+
+An application server (like WebLogic, WebSphere, JBoss AS, Glassfish, etc) usually includes a web server, but also adds a lot more features. The most important is that it manages objects. Whether they will be servlets (Servlet container), EJBs (ejb container), JMS listeners, etc.
+
+
+
+
+
+
+Web Server -
+
+Server on which your website is hosted. This server will have installed web servers such as IIS, apache, etc.
+
+Application Server -
+
+Server on which your created applications which are utilizing your database, web service, etc. This application server will host business layer (wrapped with web services), scheduled jobs, windows services, etc.
+
+Database Server -
+
+Database server will have your one or more database hosted such as Oracle, Sql Server, MySql, etc.
+
+If you are referring to htdocs then it is a Web Server. The database you are using is must be installed on different server which is your Database server. Application server can also be installed on the same web server machine.
+
+
+A web server‘s fundamental job is to accept and fulfill requests from clients for static content from a website (HTML pages, files, images, video, and so on). The client is almost always a browser or mobile application and the request takes the form of a Hypertext Transfer Protocol (HTTP) message, as does the web server’s response.
+
+An application server’s fundamental job is to provide its clients with access to what is commonly called business logic, which generates dynamic content; that is, it’s code that transforms data to provide the specialized functionality offered by a business, service, or application. An application server’s clients are often applications themselves, and can include web servers and other application servers. Communication between the application server and its clients might take the form of HTTP messages, but that is not required as it is for communication between web servers and their clients. Many other protocols are popular, including the variants of CGI.
+
+How Do Application Servers and Web Servers Work Together?
+In a typical deployment, a website that provides both static and dynamically generated content runs web servers for the static content and application servers to generate content dynamically. A reverse proxy and load balancer sit in front of one or more web servers and one or more web application servers to route traffic to the appropriate server, first based on the type of content requested and then based on the configured load-balancing algorithm. Most load balancer programs are also reverse proxy servers, which simplifies web application server architecture.
+
+Why the Question?
+Why is it a question whether something is an application server vs. a web server? It’s largely due to how the design and use of the two types of servers has increasingly come to overlap as the demands on websites have grown. Many popular applications act as both web servers and application servers (think Apache HTTP Server, Express, Hapi, and Koa).
+
+Another overlap is that some web application servers use HTTP as their communication protocol. Similarly, some web servers end up looking like application servers because they have built-in modules and functionality that natively support popular languages like PHP, or proxy and translate requests from HTTP into the protocol (such as FastCGI) used by the application.
+
+

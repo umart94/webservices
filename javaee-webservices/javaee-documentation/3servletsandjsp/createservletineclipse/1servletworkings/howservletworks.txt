@@ -1,0 +1,39 @@
+we will go to localhost:8080 , thats the website / (webserver)
+
+the application context root is servletprint 
+
+so when users will go to our website, they will first go to servletprint.
+
+then through links, we go to SEPERATE SERVLETS URL PATHS.
+
+
+so these are like seperate web pages.
+
+any  java class that extends HttpServlet must implement the doGet method
+
+and doPost method
+
+(see the abstract classes methods to be implemented for class HttpServlet)
+
+
+the doGet method is called, for the GET request on the servlet.
+
+
+in these webservices project, system.out.println will print to the console.
+
+
+but for displaying html output on the webpage, we use PrintWriter class.
+
+
+we will obtain the HTTP GET REQUEST from the client through HttpServletRequest , AND A HTTP RESPONSE through HttpServletResponse
+
+
+
+make sure that when you run a newly coded application you undeploy the previous web apps from
+
+
+glassfish management
+deployed applications
+
+right click on each app
+select undeploy.

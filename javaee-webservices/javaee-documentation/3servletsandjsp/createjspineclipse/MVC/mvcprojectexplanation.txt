@@ -1,0 +1,176 @@
+1. Model - the java code that accesses / processes the data
+2. View - the interface that the user sees
+3. Controller - serves as a communicator between the model and the view.
+
+HttpServlet is the class that implements the HTTP Request Methods like 
+
+doGet for get request 
+
+doPost. for post request.
+
+the serialVersionUID long integer, is for maintaining compatibility between different versions of our classes. ( will be used in serializing)
+
+
+we are using mysql database, so we need to add mysql-connector-java jar file to glassfish domain libraries. ( the domain that we created in glassfish.)
+
+Once GlassFish is installed, make sure it can access MySQL Connector/J. To do this, copy the MySQL Connector/J jar file to the domain-dir/lib directory. For example, copy mysql-connector-java-5.1.30-bin.jar to C:\glassfish-install-path\domains\domain-name\lib. Restart the GlassFish Application Server.
+
+
+also add the library to glassfish5\glassfish\lib
+
+
+
+now we need to restart glassfish , then open admin console. and then create a jdbc connection pool.
+
+In the GlassFish Administration Console, using the navigation tree navigate to Resources, JDBC, Connection Pools. 
+
+In the JDBC Connection Pools frame click New. You will enter a two step wizard.
+
+In the Name field under General Settings enter the name for the connection pool, for example enter MySQLConnPool.
+
+In the Resource Type field, select javax.sql.DataSource from the drop-down listbox.
+
+In the Database Vendor field, select MySQL from the drop-down listbox. Click Next to go to the next page of the wizard.
+
+You can accept the default settings for General Settings, Pool Settings and Transactions for this example. Scroll down to Additional Properties.
+
+In Additional Properties you will need to ensure the following properties are set:
+
+ServerName - The server to connect to. For local testing this will be localhost.
+
+User - The user name with which to connect to MySQL.
+
+Password - The corresponding password for the user.
+
+DatabaseName - The database to connect to, for example the sample MySQL database World.
+
+
+Property
+Description
+user
+Specifies the user name for connecting to the database.
+password
+Specifies the password for connecting to the database.
+databaseName
+Specifies the database for this connection pool.
+serverName
+Specifies the database server for this connection pool.
+port
+Specifies the port on which the database server listens for requests.
+networkProtocol
+Specifies the communication protocol.
+roleName
+Specifies the initial SQL role name.
+datasourceName
+Specifies an underlying XADataSource, or a ConnectionPoolDataSource if connection pooling is done.
+description
+Specifies a text description.
+url
+Specifies the URL for this connection pool. Although this is not a standard property, it is commonly used.
+
+
+
+
+
+
+
+Click Finish to exit the wizard. You will be taken to the JDBC Connection Pools page where all current connection pools, including the one you just created, will be displayed.
+
+In the JDBC Connection Pools frame click on the connection pool you just created. Here, you can review and edit information about the connection pool. Because Connector/J does not support optimized validation queries, go to the Advanced tab, and under Connection Validation, configure the following settings:
+
+Connection Validation - select Required.
+
+Validation Method - select table from the drop-down menu.
+
+Table Name - enter DUAL.
+
+To test your connection pool click the Ping button at the top of the frame. A message will be displayed confirming correct operation or otherwise. If an error message is received recheck the previous steps, and ensure that MySQL Connector/J has been correctly copied into the previously specified location.
+
+
+THE PING FAILS WITH : 
+
+Ping Connection Pool failed for MySQLConnPool. Class name is wrong or classpath is not set for : com.mysql.jdbc.jdbc2.optional.MysqlDataSource Please check the server.log for more details.
+
+
+This is because you did not add the connector j mysql library to the correct path.
+
+also , set the datasource class as com.mysql.cj.jdbc.MysqlDataSource
+instead of com.mysql.jdbc.jdbc2.optional.MysqlDataSource it has been updated in v8.0.2 mysql
+
+
+Exception while creating an unpooled [test] connection for pool [ MySQLConnPool ], Connection could not be allocated because: Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+
+
+the problem is that we now need to use this class com.mysql.cj.jdbc.MysqlDataSource in our application and connect to mysql, which will then use the glassfish mysql connection pool.
+
+
+
+
+
+
+
+I've also added the MySQL driver .jars to the library of glassfish in both projects.
+
+It was apparently not done right. The JAR has to go in /glassfish/domains/[domainname]/lib/ext folder of the Glassfish installation where [domainname] usually defaults to domain1. You can and should not configure it from the Eclipse side on.
+
+
+
+
+To integrate the JDBC driver into a GlassFish Server domain, copy the JAR files into the domain-dir/lib directory, then restart the server. This makes classes accessible to all applications or modules deployed on servers that share the same configuration. For more information about GlassFish Server class loaders, see Chapter 2, Class Loaders.
+
+If you are using an Oracle database with EclipseLink extensions, copy the JAR files into the domain-dir/lib/ext directory, then restart the server. For details, see Oracle Database Enhancements.
+
+
+
+Now that you have created a connection pool you will also need to create a JDBC Resource (data source) for use by your application.
+
+
+
+sometimes if you added library to webinf or some other files have issues
+
+1. delete the generated folder contents at 
+D:\programfiles\glassfish5\glassfish\domains\domain1\generated
+
+2. delete the stalefile content at
+D:\programfiles\glassfish5\glassfish\domains\domain1\applications\mvc1
+
+
+will be .glassfishstalefile file.
+
+
+
+
+
+now we get the correct errors :
+
+the errors we get are 
+
+2020-12-10T12:34:15.258+0500|Info: JACC Policy Provider: Failed Permission Check, context(mvc1/mvc1)- permission(("java.lang.RuntimePermission" "SSLPassword"))
+
+
+2020-12-10T12:34:15.300+0500|Info: java.sql.SQLNonTransientConnectionException: Could not create connection to database server.
+
+
+Caused by: java.security.AccessControlException: access denied ("java.util.PropertyPermission" "javax.net.ssl.keyStorePassword" "read")
+
+
+
+https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-using-ssl.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+Java Server Pages (JSP; formerly JavaServer Pages) is a collection of technologies that helps software developers create dynamically generated web pages based on HTML, XML, SOAP, or other document types. Released in 1999 by Sun Microsystems,[1] JSP is similar to PHP and ASP, but uses the Java programming language.
+
+To deploy and run Java Server Pages, a compatible web server with a servlet container, such as Apache Tomcat or Jetty, is required.
+
+Filename extension	
+.jsp, .jspx, .jspf
+Internet media type	
+application/jsp
+Latest release	2.3.6
+Standard	JSR 245
+Website	projects.eclipse.org/projects/ee4j.jsp Edit this at Wikidata
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Architecturally, JSP may be viewed as a high-level abstraction of Java servlets. JSPs are translated into servlets at runtime, therefore JSP is a Servlet; each JSP servlet is cached and re-used until the original JSP is modified.[2]
+
+Java Server Pages can be used independently or as the view component of a server-side model–view–controller design, normally with JavaBeans as the model and Java servlets (or a framework such as Apache Struts) as the controller. This is a type of Model 2 architecture.[3]
+
+JSP allows Java code and certain predefined actions to be interleaved with static web markup content, such as HTML. The resulting page is compiled and executed on the server to deliver a document. The compiled pages, as well as any dependent Java libraries, contain Java bytecode rather than machine code. Like any other .jar or Java program, code must be executed within a Java virtual machine (JVM) that interacts with the server's host operating system to provide an abstract, platform-neutral environment.
+
+JSPs are usually used to deliver HTML and XML documents, but through the use of OutputStream, they can deliver other types of data as well.[4]
+
+The Web container creates JSP implicit objects like request, response, session, application, config, page, pageContext, out and exception. JSP Engine creates these objects during translation phase.
+
+
+
+
+
+
+
+
+
+JSP pages use several delimiters for scripting functions. The most basic is <% ... %>, which encloses a JSP scriptlet. A scriptlet is a fragment of Java code that runs when the user requests the page. Other common delimiters include <%= ... %> for expressions, where the scriptlet and delimiters are replaced with the result of evaluating the expression, and directives, denoted with <%@ ... %>.[5]
+
+Java code is not required to be complete or self-contained within a single scriptlet block. It can straddle markup content, provided that the page as a whole is syntactically correct. For example, any Java if/for/while blocks opened in one scriptlet must be correctly closed in a later scriptlet for the page to successfully compile. This allows code to be intermingled and can result in poor programming practices.
+
+Content that falls inside a split block of Java code (spanning multiple scriptlets) is subject to that code. Content inside an if block will only appear in the output when the if condition evaluates to true. Likewise, content inside a loop construct may appear multiple times in the output, depending upon how many times the loop body runs.
+
+The following would be a valid for loop in a JSP page:
+
+<p>Counting to three:</p>
+<% for (int i=1; i<4; i++) { %>
+    <p>This number is <%= i %>.</p>
+<% } %>
+<p>OK.</p>
+The output displayed in the user's web browser would be:
+
+Counting to three:
+
+This number is 1.
+
+This number is 2.
+
+This number is 3.
+
+OK.
+Expression Language
+Version 2.0 of the JSP specification added support for the Expression Language (EL), used to access data and functions in Java objects. In JSP 2.1, it was folded into the Unified Expression Language, which is also used in JavaServer Faces.[6]
+
+An example of EL syntax:
+
+The value of "variable" in the object "javabean" is ${javabean.variable}.
+
+Additional tags
+The JSP syntax add additional tags, called JSP actions, to invoke built-in functionality.[5] Additionally, the technology allows for the creation of custom JSP tag libraries that act as extensions to the standard JSP syntax.[7] One such library is the JSTL, with support for common tasks such as iteration and conditionals (the equivalent of "for" and "if" statements in Java.)[8]
+
+Compiler
+A JavaServer Pages compiler is a program that parses JSPs, and transforms them into executable Java Servlets. A program of this type is usually embedded into the application server and run automatically the first time a JSP is accessed, but pages may also be precompiled for better performance, or compiled as a part of the build process to test for errors.[9]
+
+Some JSP containers support configuring how often the container checks JSP file timestamps to see whether the page has changed. Typically, this timestamp would be set to a short interval (perhaps seconds) during software development, and a longer interval (perhaps minutes, or even never) for a deployed Web application.[10]

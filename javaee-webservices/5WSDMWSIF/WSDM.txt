@@ -1,0 +1,73 @@
+Web Services Distributed Management
+HELP MANAGE other web services or network enabled hardware devices
+
+interface with other devices
+
+printers
+servers
+fax machines
+
+compatible with many different devices
+
+management tools infrastructure.
+
+
+define access and commands for these services using single standard.
+
+easier to do once than to define for every device.
+
+
+there are two standards within wsdm
+
+MUWS 
+work with services other than computers
+printers , routers etc. were databases in web services
+then it provides settings
+
+Network Printer
+resizing pages
+printing documents
+standard 
+
+it personnel control this
+user interface web service
+turning it on and off
+updating it and so on.
+
+MOWS service
+
+
+group for maintainance of printers
+number of pages printed
+ink levels
+implemented using MUWS
+
+
+
+MOWS
+A WEB SERVICE FOR web services
+it allows us to manage web services remotely
+how they interact and what permissions they have
+
+
+
+
+•	Management Using Web Services (MUWS) — WSDM MUWS defines how to represent and access the manageability interfaces of resources as Web services. It defines a basic set of manageability capabilities, such as resource identity, metrics, configuration, and relationships, which can be composed to express the capability of the management instrumentation. WSDM MUWS also provides a standard management event format to improve interoperability and correlation.
+•	Management Of Web Services (MOWS) — WSDM MOWS defines how to manage Web services as resources and how to describe and access that manageability using MUWS. MOWS provides mechanisms and methodologies that enable manageable Web services applications to interoperate across enterprise and organizational boundaries.
+
+
+
+
+
+
+
+MOWS - manage other web services
+MUWS - manage web service directly.
+
+
+
+
+
+
+
+

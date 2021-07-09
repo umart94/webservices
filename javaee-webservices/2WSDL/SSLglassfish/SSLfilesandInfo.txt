@@ -1,0 +1,47 @@
+1. Key Pairs
+2. Keystores / Truststores
+3. Encryption
+4. Client Cert Authentication
+
+key pairs are made up of public keys and private keys
+
+1. public key is used for encryption and client cert authentication from servers perspective.
+
+2. private key is used for decrypting its used for client cert authentication from clients perspective.
+
+
+Keystore / Truststore
+
+used to hold only your public/private key pair
+
+Truststore
+used to hold clients public keys
+used to hold server public keys if communicating with server over https
+
+
+
+
+Encryption
+From App Server Perspective
+Configure an http listener with SSL ( https)
+
+From Client Perspective
+From Browser
+
+
+
+in glassfish we create a domain :
+D:\programfiles\glassfish5\glassfish\domains\domain1\config
+keystore.jks file 
+
+this has a key pair generated automatically called s1as generated automatically when glassfish is started.
+
+
+
+the client has to generate a key pair ( public, private)
+then client has to export the public key
+
+app server has to import the client public key into the truststore and configure http listener with this information.
+
+--------------------------
+

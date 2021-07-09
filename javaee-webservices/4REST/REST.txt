@@ -1,0 +1,69 @@
+set of architecture principles to design web services
+easier to use than soap or wsdl
+
+standard or architectural style
+
+standard styles
+w3c issues specification documents
+we must follow standards
+and these are very limiting ( in use )
+
+
+
+architectural style, not a standard ( but easier to use)
+no specific format or syntax
+"Best Practices"
+
+REST does use standards as well but is an architectural style.
+
+
+
+SOAP and wsdl focus on http methods and objects that will be accessed.
+
+
+REST focuses on system resources, and how resource states are transferred via http..
+
+
+4 Design principles
+
+1. REST service uses HTTP methods
+POST
+GET
+PUT
+DELETE
+
+2. Stateless
+any request can be run on any server
+and can be forwarded from 1 server to any other server. as needed
+each request is complete and independent, so components in the intermediary servers can forward, route and load balance without needing to hold local state data.
+
+allows a high degree of parallelization
+
+The degree of parallelism (DOP) is a metric which indicates how many operations can be or are being simultaneously executed by a computer. It is especially useful for describing the performance of parallel programs and multi-processor systems.
+
+A program running on a parallel computer may utilize different numbers of processors at different times. For each time period, the number of processors used to execute a program is defined as the degree of parallelism. The plot of the DOP as a function of time for a given program is called the parallelism profile.
+
+
+3. Systematic URI Formats
+makes them easy to create and understand
+
+format in general (for e.g) is
+
+http://webservice.com/topcategory/subcategory/topic
+
+directory form for uri
+structured like a file path within a computer.
+
+
+4. XML Messages
+
+format data and messages ( output)
+
+or JSON
+
+
+
+
+
+
+

@@ -1,0 +1,155 @@
+mysql -u root -p
+CREATE USER mvc identified by 'mvc'; [ will create on % any host.]
+CREATE DATABASE mvc;
+use mvc
+select host, user from mysql.user;
+GRANT ALL PRIVILEGES ON mvc.* to 'mvc'@'%';
+
+SHOW DATABASES;
+
+use mvc
+
+mysql -u mvc -p
+
+use mvc
+SELECT USER();
+This will return something like username@hostname.
+
+Another possibility is to issue a system command.
+
+mysql> system clear;
+for Linux or
+
+mysql> system cls;
+for windows (I'd guess. For Linux I'm sure though.).
+
+
+use mvc
+
+CREATE TABLE customer(
+customerid INT unsigned not null auto_increment primary key,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+emailid VARCHAR(30) NOT NULL
+);
+
+DROP DATABASE MVC;
+DROP USER 'mvc'@'%';
+
+CREATE USER 'mvc'@'localhost' IDENTIFIED BY 'mvc';
+GRANT ALL PRIVILEGES ON mvc.* to 'mvc'@'localhost';
+
+THIS process was for a NON-SSL, http tcp/tcp connection
+
+------------------------------------------------
+
+SSL Mode in MySQL
+
+for ssl mode, we need to create a user that will , in addition to
+password, require the SSL mode as well,
+
+then , our java app will not give the
+
+accesscontrolexceptions or sqlnontransientexceptions.
+
+
+
+-----------------------------
+CREATING SSL MODE MYSQL USER.
+
+first, configure mysql to use ssl
+then
+
+check ssl status in mysql.
+
+show variables like '%ssl%';
+
+status;
+
+SHOW SESSION STATUS LIKE 'Ssl_cipher';
+
+view the ssl properties
+ then
+
+Windows uses .ini files to initialise applications
+Linux uses .cnf files to configure applications
+
+Simply different terminology used on different operating systems for what is effectively the same thing.
+
+
+C:\ProgramData\MySQL\MySQL Server 8.0
+
+
+
+in mysqld section in myini file of mysql, add :
+require_secure_transport=ON
+
+open admin cmd, wont work due to uac. otherwise...
+
+go to the binaries path of mysql, and now create a service using this config file in windows.
+
+
+# To install the server as a Windows service manually, execute this in a 
+# command line shell, e.g.
+# mysqld --install MySQL8SSL --defaults-file="C:\Program Files\MySQL\MySQL Server 8.0\my.ini"
+#
+# And then execute this in a command line shell to start the server, e.g.
+# net start MySQLXY
+#
+
+mysql -u root -p -h 127.0.0.1 --ssl-mode=VERIFY_CA
+
+
+
+mysqld --defaults-file="C:\Program Files\MySQL\MySQL Server 8.0\my.ini"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To configure a MySQL account to be usable only over encrypted connections, include a REQUIRE clause in the CREATE USER statement that creates the account, specifying in that clause the encryption characteristics you require. For example, to require an encrypted connection and the use of a valid X.509 certificate, use REQUIRE X509:
+
+
+CREATE USER 'ssldbuser'@'localhost' REQUIRE X509;
+
+
+ CREATE USER 'ssldbuser'@'localhost' IDENTIFIED by '' REQUIRE X509;
+
+GRANT ALL PRIVILEGES ON mvc.* to 'ssldbuser'@'localhost';
+
+
+
+
+mysql -u ssldbuser -p -h 127.0.0.1 --ssl-mode=VERIFY_CA
+
+
+ssl is verified by removing just the ssl-mode parameter at the end
+
+
+
+when we connect again using the same user now, mysql should give an error
+
+mysql -u ssldbuser -p -h 127.0.0.1
+enter password : 
+
+ERROR 1045 (28000): Access denied for user 'ssldbuser'@'localhost' (using password: YES)
+
+String url = "jdbc:mysql://127.0.0.1:3306/mvc"+
+				"?verifyServerCertificate=false"+
+				"&useSSL=true"+
+				"&requireSSL=true";
+
+
+
+
+https://stackoverflow.com/questions/34189756/warning-about-ssl-connection-when-connecting-to-mysql-database

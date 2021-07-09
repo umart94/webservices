@@ -1,0 +1,159 @@
+let eclipse generate wsdl
+then customize wsdl by changing the parts that we dont want
+
+@WebService(name="newname")
+
+in wsdl file , under portType we will see the changes
+
+<portType name="newname">
+<operation name="displayAString">
+<input wsam:Action="http://umartariq.com/newname/displayAStringRequest" message="tns:displayAString"/>
+<output wsam:Action="http://umartariq.com/newname/displayAStringResponse" message="tns:displayAStringResponse"/>
+</operation>
+<operation name="fibonacci">
+<input wsam:Action="http://umartariq.com/newname/fibonacciRequest" message="tns:fibonacci"/>
+<output wsam:Action="http://umartariq.com/newname/fibonacciResponse" message="tns:fibonacciResponse"/>
+</operation>
+</portType>
+
+
+
+changing other fields
+
+portName field, changes the name of the port displayed under the service tag
+
+the target namespace field , changes the name of the package which is displayed in the auto generated urls of the portType tag
+
+the service name field , changes the name of the service itself
+changing the name of the service also changes the url , so we will have to manually update in browser, or we will get a 404 error.
+
+entries for each individual method
+if the class is labelled as a web service, all methods are web methods
+to customize we need to make annotation explicit.
+
+this is done using @WebMethod annotation
+
+there are 3 fields used to customize a method
+
+1. action - a plaintext string that will be interpreted by wsdl as an action within the operation.
+
+2. operationName= changes how the method is displayed, used to differentiate between the backend and front end depictions of the method
+useful to have a verbose description
+
+3. exclude - designate certain methods not to be included in the wsdl
+this is done a lot
+as there are a lot of methods in the class
+but only a few will be made accessible in the web service.
+
+@WebMethod(action="sample", operationName="name", exclude) annotation
+
+
+
+----------------------------------------------------
+
+first, run the webservice and edit the automatically generated wsdl file
+
+select two message tags ( 2 per function ) so we need to add a function so we need to copy 2 message tags.
+
+Message
+
+<message name="reportTime">
+<part name="parameters" element="tns:reportTime"/>
+</message>
+<message name="reportTimeResponse">
+<part name="parameters" element="tns:reportTimeResponse"/>
+</message>
+
+Operation
+
+
+the next step is to add operations within the portType tag.
+in portType tag, copy a operation tag.
+
+<operation name="reportTime">
+<input wsam:Action="http://umartariq.com/newname/reportTimeRequest" message="tns:reportTime"/>
+<output wsam:Action="http://umartariq.com/newname/reportTimeResponse" message="tns:reportTimeResponse"/>
+</operation>
+
+
+SOAP Binding
+
+copy a soap binding operation corresponding to another method
+
+if we need to specify binding style here , we can specify but we are using literal here
+
+encoded binding styles add extra overhead that slow down message transmission
+
+
+wsdl is an outline of the program that we will create that all the users will see.
+
+
+one part for input and one part for response
+
+multiple parts or multiple responses
+
+more than two parts might be necessary
+
+in a database lookup
+users might want to get all the information with a single request rather than launching seperate single requests.
+
+- Multiple Parts
+- Allows a single request to return multiple pieces of data
+- Delineates different parts of a single message
+- Metadata
+- Headers and footers.
+
+the way to create such a message is to create a complex type element.
+
+this complextype tag goes inside the schema tag
+
+allows to define a complicated message for number and type of elements.
+
+this is the outer most tag.
+xs:element - this is the name of the element which will be used if we use the tag somewhere else inside the wsdl file.
+
+within this tag add xs:complexType tag. because this is a subtag that defines what element is and how it can be referenced.
+
+some different attributes of complexType tag can be changed , all are optional
+
+ID and Name attributes create seperate identifiers for the complex Type for ease of reference
+
+the Abstract Block and Final attributes serve restrictions on how complex Type can be used.
+
+
+if Abstract is true, then it cannot be used as part of an instance document
+Block and final can be further described (delineated) by Extension, Restriction and All.
+
+delineate
+means
+describe or portray (something) precisely.
+indicate the exact position of (a border or boundary).
+
+
+Extension - prevents any complexTypes from being derived from this type by extension
+Restriction - prevents any complexTypes from being derived from this type by restriction
+All - prevents both Extension and Restriction for its complexType.
+
+Mixed attribute specifies whether character data can appear between the child elements.
+
+
+
+<xs:element name="name">
+<xs:complexType>
+</xs:complexType>
+</xs:element>
+
+
+within the complexType tag, the inner most tag is sequence. inside the sequence tag, we can define all the elements that we want the complexType to use.
+for each element the syntax is as defined below
+<xs:element name="name" type="type"/>
+
+<xs:element name="name">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="name" type="type"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+

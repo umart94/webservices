@@ -1,0 +1,100 @@
+Other implementations : 
+
+PHP SOAPServer and SOAPClient
+
+Added in PHP 5.0.1
+
+Supports SOAP 1.1 and SOAP 1.2
+can be used with or without WSDL
+
+https://www.php.net/manual/en/class.soapserver.php
+https://www.php.net/manual/en/class.soapclient.php
+
+
+------------------
+
+generate php client proxy
+
+free tool -> build php client script from wsdl.
+
+http://www.wsdltophp.com
+
+https://github.com/WsdlToPhp
+
+https://providr.io/
+
+------------
+
+C and C++ : Apache Axis2/C
+
+Open source libraries from apache
+
+1.2 1.2 , restful , ws-* standards.
+http://axis.apache.org/axis2/java/core/
+http://axis.apache.org/axis2/c/core/
+
+This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter. (what we used)
+
+THIS uses soap/wsdl based engine.
+
+-------------------
+
+JAX-WS
+
+part of java web services development pack.
+available from oracle.
+
+
+JAX-WS 2.0 replaces JAX-RPC in Java EE5
+------------------------
+
+
+Java Other options
+
+Apache CXF
+Supports SOAP and RESTful Services.
+works over http ,  java messaging service (JMS) , Java Business Integration (JBI)
+
+
+-------------------
+
+JAVA For android clients
+
+ksoap2
+https://code.google.com/archive/p/ksoap2-android/
+https://code.google.com/archive/p/ksoap2-android/downloads
+http://kobjects.org/ksoap2/index.html
+
+https://simpligility.github.io/ksoap2-android/howto.html
+
+-----------------------
+Python
+ZSI
+SUDS
+spyne
+ladon
+pysimplesoap
+SOAPpy
+-----------------------
+Ruby
+XMLRPC4R
+SOAP4R
+----------
+
+Web Pages
+jQuery SOAP
+supports xml dom,xml string, or json for request and response messages.
+
+https://plugins.jquery.com/soap/ [1.4.2]
+
+--------------------
+
+Adobe ColdFusion - built in webserver support - works as both client and server.
+instant server with <cfcomponent>
+instant client proxy with <cfinvoke>
+
+-------------
+
+FLASH -> Flex. (developed for adobe flash but now opensource apache)
+

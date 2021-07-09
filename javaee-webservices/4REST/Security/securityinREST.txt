@@ -1,0 +1,60 @@
+Security and Encryption
+
+1. Enable Security Manager:
+in configuration - server config - security - enable security manager
+
+we need to apply the security to and from web service
+
+
+the most common security is web services security which uses xml encryption and xml digital signatures to secure messages
+
+Security -> Message Security:
+
+the two types of security configurations describe the web services
+
+HttpServlet
+is designed for restful web services, and web services that communicate primarily through http
+
+SOAP
+is designed for soap web services
+
+
+click on http servlet
+Specify default server and client provider configuration. Selecting the blank option configures a null provider.
+
+we have to specify a configuration for client side and server side security
+
+by default
+http servlet only has 1 security option
+setting the default provider with GFConsoleAuthModule.
+choosing this causes the server side to use basic authentication to encrypt data and control access.
+
+SOAP has 2 options
+ServerProvider
+XWS_ServerProvider
+
+both of them provide same security
+xws has additional security for xml files.
+
+
+
+Points:
+
+Authentication - who is accessing the service ( username,password)
+Authorization - who can access the service, prevents unauthorized users to access the system. ( username,password)
+multiple players of authorization
+
+administrators view any parts
+clients access certain parts. etc.
+
+
+Confidentiality - ensure that no one else can eavesdrop on the connection
+
+who can see messages to and from the service.
+
+encryption standard
+
+public and private keys
+
+
+

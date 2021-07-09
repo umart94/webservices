@@ -1,0 +1,30 @@
+SOAP Goals
+----------
+Extensibility - can be adapted to any business process
+Neutrality - used with http(s) , compatible with ftp,smtp
+Independence - no lock-in to vendors, operating systems or languages.
+-------------------
+
+SOAP 1.1 (2000) still in use
+
+SOAP 1.2 (2007)
+clearer processing extensibility models and better web integration.
+----------------------
+
+role of soap libraries. ( free of serialization and deserialization )
+
+As a developer - we need a library compatible with our system.
+Indicate which service we want to use by providing a document in xml format known as WSDL
+then we call remote services just as we call local functions
+
+messages are sent as envelopes.
+these are request response or fault messages.
+
+data is parsed by client library and returned to local environment as native data.
+
+Disadvantage is SOAP Size.
+message translations take time due to size.
+-------------------------------------------
+
+
+

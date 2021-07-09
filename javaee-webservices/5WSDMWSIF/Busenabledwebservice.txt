@@ -1,0 +1,31 @@
+associated with service integration bus
+
+single architecture
+communication network for multiple servers and other devices
+
+different services are bus stops
+single architecture
+can pickup services from each bus stop and transmit them to the other bus stop
+
+any application that is connected to a service integration bus
+can exchange messages with other application by defining a destination
+
+one application sends to  destination and the other receives from it
+i.e (producer and consumer application) can produce and consume regardless of the messaging engine that they used to connect to the bus
+
+helps to increase compatibility
+
+messages can be sent asynchronously
+message will be retained in the bus
+
+
+advantages
+compatibility - multiple messaging engines. makes it easier to translate amongst different types of web services.
+
+flexibility - asynchronous messaging, deal with different levels of server load in web applications
+
+control
+
+convert internally hosted web services to web services and vice versa.
+
+

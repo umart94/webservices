@@ -1,0 +1,6 @@
+jdk >8
+
+jdk1.8.0_172 will also not work with glassfish5
+
+only jdk1.8.0_144 ( some version around <= 150 ) are working.
+

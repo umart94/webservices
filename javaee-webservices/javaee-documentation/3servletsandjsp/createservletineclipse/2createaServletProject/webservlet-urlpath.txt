@@ -1,0 +1,11 @@
+@WebServlet("/TestDisplay")
+
+/TestDisplay is the url path... it will be under a root path..
+
+root path is /servletprint
+This is called the context root
+
+
+
+
+so full path is /servletprint/TestDisplay

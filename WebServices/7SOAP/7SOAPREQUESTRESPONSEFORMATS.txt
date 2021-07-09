@@ -1,0 +1,84 @@
+Hierarchical XML Packet with 2 required ( total 4 )
+
+Root packet called envelope. it has a prefix. e.g env:Envelope
+
+env points to correct namespace that identifies the version of SOAP being used.
+--------------------
+----------------------
+SOAP NAMESPACE.
+1. THE ORGANIZATION'S UNIQUE DOMAIN
+2. VIRTUAL FOLDER NAMES IDENTIFYING THE VERSION
+3. THE SCHEMA NAME
+
+
+"http://www.w3.org/2003/05/soap-envelope" [THE ENTIRE SOAP NAMESPACE]
+
+unique domain : http://www.w3.org
+version : /2003/05 [ virtual folder identifying the soap schema version ( in this case the year soap 1.2 was first defined)
+
+
+
+Namespace is a globally unique string that points to a specific XML Schema.
+
+to ensure global uniqueness
+namespace starts with unique domain.
+after which come the virtual folder names identifying the version
+
+------------------------------------
+
+The SOAP ENVELOPE
+<env:Envelope
+xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+</env:Envelope>
+
+
+Prefix = env
+Prefix Declaration = xmlns:env
+Prefix use = tags
+Namespace = http://www.w3.org/2003/05/soap-envelope
+
+
+-------------------
+SOAP Related Schemas has other namespaces
+--------------------
+in a soap envelope header is optional
+the body is required.
+
+if message has header it shows as first child element of body.
+
+header is data about message
+API KEYS , LOGIN CREDENTIALS , TIMESTAMPS, how long data is good for.
+
+
+----------------------
+
+SOAP BODY
+
+required in request and response
+contains actual content of request and response
+
+---------------------
+
+SOAP RESPONSE
+
+if the request response fails
+
+SOAP FAULT IS SENT
+--------------------
+FAULT has some child elements that are predefined these are : 
+
+in SOAP 1.2
+Code - fixed values.
+Reason
+Role
+Detail
+
+the value Sender means client sent a malformed request message that had an error that had unrecognized operation name.
+
+version mismatch - client and server are using different versions of the service
+must understand - server did not understand something in the request headers.
+
+-----------------------------------
+
+
+

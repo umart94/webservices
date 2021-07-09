@@ -1,0 +1,24 @@
+go to project explorer pane
+
+right click on previous project, copy it and paste it to some location
+
+
+then on the copied project ( new one ) go to project's properties
+
+go to web project settings
+
+and change the context path to what you named this project to 
+
+so for example
+
+servletprint was my project 1
+so change it to servletprint2
+
+this way the context paths are now changed
+
+now when we run this new project, there will be no conflict of
+the contextpaths.
+
+
+
+so there will be no errors, else the app will not run

@@ -1,0 +1,51 @@
+xml based protocol that enables users to exchange information available via other protocols
+e.g http
+
+this is closely related to wsdl, most wsdl documents are based on soap
+wsdl documents refer to soap as part of their bindings
+
+this determines in which format and encoding message is transferred.
+
+soap holds information like location of recipient and metadata of information
+
+
+
+SOAP
+------------
+soap is designed for a remote connection
+soap messages transmit effectively over http
+soap is universally recognizted, full support , language independent and platform independent , communcating through xml.
+
+soap - toolkit for java
+commonly used
+
+java api for xml web services
+jax-ws
+defines a standard java to wsdl mapping which automatically translates java code to a wsdl message using soap protocol
+
+jax-ws is a protocol that automatically generated the wsdl file.
+
+java ee platform already includes jax-ws
+jax api is already core api that glassfish uses.
+
+
+
+
+
+RPC - Remote Procedure calls
+----------------
+used to communicate between objects over a distributed component object model so network computers can communicate between a series of software components.
+another common standard use is common object use broker architecture
+
+rpc is designed for computers within a small network. ( dont work well on http messages )
+
+firewalls and proxy servers block rpcs due to security risk and not all computers can run rpcs without substantial modification.
+
+
+
+
+
+
+
+
+

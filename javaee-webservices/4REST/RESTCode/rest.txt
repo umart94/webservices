@@ -1,0 +1,32 @@
+create a scheduling system
+allow multiple users to reserve slots
+check for conflicts.
+
+1. method to receive data from external users
+this data will be preferred meeting slot
+
+2. back end database
+
+3. algorithm to check data with database
+
+4. method to return results.
+
+start at full hours
+and 1 user assigned to 1 slot.
+
+Restful method : post
+user data : plaintext
+database : arraylist
+0: timeslot is empty
+1: time slot is full
+
+load database from a file
+check its input
+update arraylist
+return it to a file
+output success or failure.
+
+
+1 for success
+0 for failure.
+

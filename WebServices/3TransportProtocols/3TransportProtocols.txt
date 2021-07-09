@@ -1,0 +1,90 @@
+pre-webservice transport protocols
+EDI : phone lines, telex machines, telnet, bi-directional modems
+---------------
+XML in 1998
+------------
+Non-HTTP Transport protocols
+FTP (File transfer protocol)
+- well suited for long documents
+- web service using ftp is called asynchronous, meaning that PCs arent communicating in realtime.
+
+INSTEAD :
+
+Client(I) ----- FTP Server(II) ------ Provider(III)
+
+1. client requests to FTP server ( client may upload files)
+2. responsing computer, which is the web service provider(III) (not ftp server(II)) will only discover the message when it polls a Dropbox folder ( set in config settings)
+it would then create a response document. and place it in an OUTGOING folder. and the client will also periodically poll for messages.
+
+so in FTP client these folders are set on the 2 PCs. with authentication settings, and web-service using ftp uses polling requests and response documents.
+
+it can support very large file transfers and message deliveries.
+
+----------------
+SMTP AND POP
+Simple Mail Transfer PROTOCOL
+Post Office Protocol.
+
+Document storage is on central hub server.
+
+Client --- SMTP Server ------ Provider. ( data is not directly sent, but polling is done through folders.)
+
+-----------------
+HyperText Transfer Protocol
+Text-based vocabulary defining requests and responses.
+Document Storage usually on the web service provider
+support synchronous request/response conversations.
+
+
+Client ---------- request and wait -------------------> provider
+client <------------- immediate response --------------- provider
+
+requests are -- get , post , put , delete
+
+these requests are formed as URIs.
+POX stands for plain old xml
+
+verb - resource root - http version
+GET /rss/tours.php HTTP/1.1
+
+Host: 
+User-Agent: client
+
+rest of the fields are headers.
+
+all clients do not support all the http request methods a.k.a a verb.
+
+GET,HEAD,POST,PUT,DELETE,TRACE,OPTIONS,CONNECT,PATCH
+----------------------
+POST :
+content type tells where content is coming from
+e.g
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 6
+
+packageid=6 [parameters]
+
+this is an example of post with form data
+------------------
+A POST request can also include XML data.
+
+
+POST
+Accept:application/xml
+Content-Type:application/xml
+
+-----------------
+A POST request can also include JSON data.
+
+
+POST
+Accept:application/json
+Content-Type:application/json
+
+https://httpstat.us/
+
+website for testing requests with time delays.
+
+
+
+

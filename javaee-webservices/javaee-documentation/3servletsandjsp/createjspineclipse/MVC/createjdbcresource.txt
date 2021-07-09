@@ -1,0 +1,17 @@
+Creating a JDBC Resource
+
+Your Java application will usually reference a data source object to establish a connection with the database. This needs to be created first using the following procedure.
+
+Using the navigation tree in the GlassFish Administration Console, navigate to Resources, JDBC, JDBC Resources. A list of resources will be displayed in the JDBC Resources frame.
+
+Click New. The New JDBC Resource frame will be displayed.
+
+In the JNDI Name field, enter the JNDI name that will be used to access this resource, for example enter jdbc/MySQLDataSource.
+
+In the Pool Name field, select a connection pool you want this resource to use from the drop-down listbox.
+
+Optionally, you can enter a description into the Description field.
+
+Additional properties can be added if required.
+
+Click OK to create the new JDBC resource. The JDBC Resources frame will list all available JDBC Resources.

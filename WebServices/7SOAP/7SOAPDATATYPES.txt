@@ -1,0 +1,15 @@
+https://www.w3.org/TR/xmlschema-2/
+
+------------
+when a value must be of a data type its declared in wsdl
+wsdl is read by soap toolkits
+
+-------------
+
+soap complex types
+custom complex types are equivalent of oop classes
+item classes a.k.a value objects.
+
+----------
+soap array data type
+

@@ -1,0 +1,52 @@
+4 steps jax-rs api
+
+Step-1 : 
+
+javax.ws.rs.client.Client interface
+
+Client c = ClientBuilder.newClient()
+
+Step-2 : 
+
+Assign the client to a target uri using client.target command
+this tells the client where to look for target command
+similiar to a method call in java
+method could be in another computer or server
+
+c.target(URI)
+
+Uri will be different
+just on computer
+or hosted on another server
+
+
+Step- 3 :
+
+Create a request
+
+.request(MediaType.type)
+
+syntax is different
+text/xml , text/plain
+
+type that will be requiresd
+
+
+step -4 :
+
+invoke the request
+
+get post put or delete
+
+for e.g
+
+.get(String.class) // get is commonly a string, so we put String.class
+
+but for put post or delete we will have to put the specific mime type.. to specify the input and not the output.
+
+
+
+
+
+
+

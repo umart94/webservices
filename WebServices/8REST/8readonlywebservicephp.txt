@@ -1,0 +1,20 @@
+install xampp, configure ports, the crosses uninstall / reinstall the service with new config.
+
+1. retreive data from database
+2. build the root xml element.
+3. loop through database recordset
+4. for each record, create an item
+5. encode in html, properly escape html entities. characters,ampersands etc. (avoid manipulation of data)
+6. addChild elements.
+7. DOM Document in Memory.
+8. format it for output, create a new dom document, echo back to the client.
+
+--------------------
+we get query parameters, check if it is set. then run the database query.
+get the database records
+then start building the xml and then dom document. then echo back to client.
+
+
+---------------
+in json version, we create the javascript arrays at the end. and simply echo them back to client.
+

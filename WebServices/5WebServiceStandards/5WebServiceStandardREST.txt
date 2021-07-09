@@ -1,0 +1,79 @@
+Representational state transfer (REST) is a software architectural style that defines a set of constraints to be used for creating Web services. Web services that conform to the REST architectural style, called RESTful Web services, provide interoperability between computer systems on the Internet. RESTful Web services allow the requesting systems to access and manipulate textual representations of Web resources by using a uniform and predefined set of stateless operations. Other kinds of Web services, such as SOAP Web services, expose their own arbitrary sets of operations.[1]
+
+"Web resources" were first defined on the World Wide Web as documents or files identified by their URLs. However, today they have a much more generic and abstract definition that encompasses every thing, entity, or action that can be identified, named, addressed, handled, or performed, in any way whatsoever, on the Web. In a RESTful Web service, requests made to a resource's URI will elicit a response with a payload formatted in HTML, XML, JSON, or some other format. The response can confirm that some alteration has been made to the resource state, and the response can provide hypertext links to other related resources. When HTTP is used, as is most common, the operations (HTTP methods) available are GET, HEAD, POST, PUT, PATCH, DELETE, CONNECT, OPTIONS and TRACE.[2]
+
+By using a stateless protocol and standard operations, RESTful systems aim for fast performance, reliability, and the ability to grow by reusing components that can be managed and updated without affecting the system as a whole, even while it is running.
+
+The term representational state transfer was introduced and defined in 2000 by Roy Fielding in his doctoral dissertation.[3][4] Fielding's dissertation explained the REST principles that were known as the "HTTP object model" beginning in 1994, and were used in designing the HTTP 1.1 and Uniform Resource Identifiers (URI) standards.[5][6] The term is intended to evoke an image of how a well-designed Web application behaves: it is a network of Web resources (a virtual state-machine) where the user progresses through the application by selecting resource identifiers such as http://www.example.com/articles/21 and resource operations such as GET or POST (application state transitions), resulting in the next resource's representation (the next application state) being transferred to the end user for their use.
+
+History
+
+Roy Fielding speaking at OSCON 2008.
+Roy Fielding defined REST in his 2000 PhD dissertation "Architectural Styles and the Design of Network-based Software Architectures" at UC Irvine.[3] He developed the REST architectural style in parallel with HTTP 1.1 of 1996–1999, based on the existing design of HTTP 1.0[7] of 1996.
+
+In a retrospective look at the development of REST, Fielding said:
+Throughout the HTTP standardization process, I was called on to defend the design choices of the Web. That is an extremely difficult thing to do within a process that accepts proposals from anyone on a topic that was rapidly becoming the center of an entire industry. I had comments from well over 500 developers, many of whom were distinguished engineers with decades of experience, and I had to explain everything from the most abstract notions of Web interaction to the finest details of HTTP syntax. That process honed my model down to a core set of principles, properties, and constraints that are now called REST.[
+
+
+
+Architectural properties
+The constraints of the REST architectural style affect the following architectural properties:[3][8]
+
+performance in component interactions, which can be the dominant factor in user-perceived performance and network efficiency;[9]
+scalability allowing the support of large numbers of components and interactions among components. Roy Fielding describes REST's effect on scalability as follows:
+REST's client-server separation of concerns simplifies component implementation, reduces the complexity of connector semantics, improves the effectiveness of performance tuning, and increases the scalability of pure server components. Layered system constraints allow intermediaries—proxies, gateways, and firewalls—to be introduced at various points in the communication without changing the interfaces between components, thus allowing them to assist in communication translation or improve performance via large-scale, shared caching. REST enables intermediate processing by constraining messages to be self-descriptive: interaction is stateless between requests, standard methods and media types are used to indicate semantics and exchange information, and responses explicitly indicate cacheability.[3]
+
+simplicity of a uniform interface;
+modifiability of components to meet changing needs (even while the application is running);
+visibility of communication between components by service agents;
+portability of components by moving program code with the data;
+reliability in the resistance to failure at the system level in the presence of failures within components, connectors, or data
+
+
+--------------------------- 6 Constraints of RESTful System -------------------------------------------
+Architectural constraints
+Six guiding constraints define a RESTful system.[8][10] These constraints restrict the ways that the server can process and respond to client requests so that, by operating within these constraints, the system gains desirable non-functional properties, such as performance, scalability, simplicity, modifiability, visibility, portability, and reliability.[3] If a system violates any of the required constraints, it cannot be considered RESTful.
+
+The formal REST constraints are as follows:
+
+Client-server architecture
+See also: Client–server model
+The principle behind the client-server constraints is the separation of concerns. Separating the user interface concerns from the data storage concerns improves the portability of the user interfaces across multiple platforms. It also improves scalability by simplifying the server components. Perhaps most significant to the Web is that the separation allows the components to evolve independently, thus supporting the Internet-scale requirement of multiple organizational domains.[3]
+
+Statelessness
+See also: Stateless protocol
+The client-server communication is constrained by no client context being stored on the server between requests. Each request from any client contains all the information necessary to service the request, and the session state is held in the client. The session state can be transferred by the server to another service such as a database to maintain a persistent state for a period and allow authentication. The client begins sending requests when it is ready to make the transition to a new state. While one or more requests are outstanding, the client is considered to be in transition. The representation of each application state contains links that can be used the next time the client chooses to initiate a new state-transition.[11]
+
+Cacheability
+See also: Web cache
+As on the World Wide Web, clients and intermediaries can cache responses. Responses must, implicitly or explicitly, define themselves as either cacheable or non-cacheable to prevent clients from providing stale or inappropriate data in response to further requests. Well-managed caching partially or completely eliminates some client-server interactions, further improving scalability and performance.
+
+Layered system
+See also: Layered system
+A client cannot ordinarily tell whether it is connected directly to the end server, or to an intermediary along the way. If a proxy or load balancer is placed between the client and server, it won't affect their communications and there won't be a need to update the client or server code. Intermediary servers can improve system scalability by enabling load balancing and by providing shared caches. Also, security can be added as a layer on top of the web services, and then clearly separate business logic from security logic.[12] Adding security as a separate layer enforces security policies. Finally, it also means that a server can call multiple other servers to generate a response to the client.
+
+Code on demand (optional)
+See also: Client-side scripting
+Servers can temporarily extend or customize the functionality of a client by transferring executable code: for example, compiled components such as Java applets, or client-side scripts such as JavaScript.
+
+Uniform interface
+The uniform interface constraint is fundamental to the design of any RESTful system.[3] It simplifies and decouples the architecture, which enables each part to evolve independently. The four constraints for this uniform interface are:
+
+Resource identification in requests
+Individual resources are identified in requests, for example using URIs in RESTful Web services. The resources themselves are conceptually separate from the representations that are returned to the client. For example, the server could send data from its database as HTML, XML or as JSON—none of which are the server's internal representation.
+Resource manipulation through representations
+When a client holds a representation of a resource, including any metadata attached, it has enough information to modify or delete the resource's state.
+Self-descriptive messages
+Each message includes enough information to describe how to process the message. For example, which parser to invoke can be specified by a media type.[3]
+Hypermedia as the engine of application state (HATEOAS)
+Having accessed an initial URI for the REST application—analogous to a human Web user accessing the home page of a website—a REST client should then be able to use server-provided links dynamically to discover all the available resources it needs. As access proceeds, the server responds with text that includes hyperlinks to other resources that are currently available. There is no need for the client to be hard-coded with information regarding the structure or dynamics of the application.[13]
+--------------------------------------------------------------------
+
+Applied to Web services
+Web service APIs that adhere to the REST architectural constraints are called RESTful APIs.[14] HTTP-based RESTful APIs are defined with the following aspects:[15]
+
+a base URI, such as http://api.example.com/collection/;
+standard HTTP methods (e.g., GET, POST, PUT, PATCH and DELETE);
+a media type that defines state transition data elements (e.g., Atom, microformats, application/vnd.collection+json,[15]:91–99 etc.). The current representation tells the client how to compose requests for transitions to all the next available application states. This could be as simple as a URI or as complex as a Java applet.[16]
+
+
